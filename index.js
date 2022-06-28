@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
-const port = 3000;
+const port = 2130;
 app.get('/', function (req, res) {
     res.sendFile(path_1.default.join(__dirname + '/index.html'));
 });
