@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+:root {
+    font-family: 'JetBrains Mono', monospace;
+
+    --active: #14B8A6;
+    --background: #0F172A;
+
+    background-color: var(--background);
+    color: white;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+    margin: 0 0.5rem;
+}
+
+.article {
+    max-width: 1000px;
+    margin: 3rem auto 0 auto;
+}
+
+.important {
+    max-width: 500px;
+    margin: 20rem auto;
+}
+
+.important > h1  {
+    font-size: 60pt;
+    padding: 0.05rem;
+    display: inline;
+    color: var(--active);
+    font-weight: 800;
+}
+
+.important > p {
+    font-size: 15pt;
+}
+
+.important > p, .important > h1 {
+    margin: 0.3rem;
+}
+
+
+.nav {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+}
+
+@media screen and (min-width: 600px) {
+    .nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.nav > a {
+    text-decoration: none;
+}
+
+.nav-item {
+    padding: 1.25rem 2rem;
+    margin: 0.5rem 0.25rem;
+    color: var(--active);
+}
+
+.nav-item:hover, .nav-active {
+    background-color: var(--active);
+    color: white;
+}
+
+p {
+    margin: 0.5rem 0;
+}
+
+p > a {
+   color: var(--active);
+   padding: 0.25rem 0;
+}
+
+p > a:hover {
+    color: white;
+    background-color: var(--active);
+}
+
+footer {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.article > h1 {
+    font-size: 30pt;
+    color: var(--active);
+    font-weight: 800;
+}

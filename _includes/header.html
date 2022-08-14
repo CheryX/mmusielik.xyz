@@ -1,0 +1,33 @@
+<nav class="nav">
+    <a href="/">
+        {% if page.site == "home" %}
+            <div class="nav-item nav-active">Home</div>
+        {% else %}
+            <div class="nav-item">Home</div>
+        {% endif %}
+    </a>
+
+    <a href="/about">
+        {% if page.site == "about" %}
+            <div class="nav-item nav-active">About</div>
+        {% else %}
+            <div class="nav-item">About</div>
+        {% endif %}
+    </a>
+
+    <a href="/projects">
+        {% if page.site == "projects" %}
+            <div class="nav-item nav-active">Projects</div>
+        {% else %}
+            <div class="nav-item">Projects</div>
+        {% endif %}
+    </a>
+
+    <a href="/contact">
+        {% if page.site == "contact" %}
+            <div class="nav-item nav-active">Contact</div>
+        {% else %}
+            <div class="nav-item">Contact</div>
+        {% endif %}
+    </a>
+</nav>
