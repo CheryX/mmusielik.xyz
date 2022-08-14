@@ -15,3 +15,9 @@ You can view all my projects on [my GitHub](https://github.com/CheryX")
 I am programming since late 2019. I started with Python, then moved to JavaScript after a while. In 2021 I started to program in C++ and Typescript. Now I am learning Rust (sometimes).
 
 Read more on my [About me](/about) page!
+
+---
+
+Cool things i made:
+
+{% include stuff.html %}

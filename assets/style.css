@@ -4,6 +4,7 @@
 
     --active: #14B8A6;
     --background: #0F172A;
+    --disabled: #334155;
 
     background-color: var(--background);
     color: white;
@@ -105,4 +106,40 @@ footer {
     font-size: 30pt;
     color: var(--active);
     font-weight: 800;
+}
+
+.article > hr {
+    color: var(--disabled);
+    margin: 2rem 0;
+}
+
+.products, .contacts {
+    padding: 2rem;
+    margin: 3rem 0;
+    background-color: #00000020;
+    display: grid;
+}
+
+.products {
+    grid-template-columns: repeat(4,minmax(0,1fr));
+}
+
+.contacts {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+}
+
+.product, .contact {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.products > a, .contacts > a {
+    color: white;
+    text-decoration: none;
+}
+
+.product > img, .contact > img {
+    width: 100px;
 }
