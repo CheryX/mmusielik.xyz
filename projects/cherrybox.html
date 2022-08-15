@@ -1,0 +1,209 @@
+---
+layout: default
+title: Cherry-Box Web Version
+site: projects
+permalink: /projects/cherrybox/
+---
+
+<script>
+
+function getTotalWidth(ctx, text, fontSize, spaceWidth) {
+    if (spaceWidth === void 0) { spaceWidth = 0; }
+    var width = 0;
+    for (var i = 0; i < text.length; i++) {
+        if (text[i].modifier == null)
+            text[i].modifier = '';
+        ctx.font = "".concat(text[i].modifier, " ").concat(fontSize, "px ").concat(text[i].font);
+        width += ctx.measureText(text[i].text).width + spaceWidth;
+    }
+    return width - spaceWidth;
+}
+
+function paintText(ctx, text, x, y, fontSize, spaceWidth) {
+    if (spaceWidth === void 0) { spaceWidth = 0; }
+    ctx.save();
+    for (var i = 0; i < text.length; i++) {
+        var textPart = text[i];
+        textPart.modifier = '' || textPart.modifier;
+        ctx.fillStyle = textPart.color;
+        ctx.font = "".concat(textPart.modifier, " ").concat(fontSize, "px ").concat(textPart.font);
+        if (textPart.shadow !== undefined) {
+            ctx.shadowColor = textPart.shadow.color;
+            ctx.shadowOffsetX = textPart.shadow.offset[0] * fontSize / 100;
+            ctx.shadowOffsetY = textPart.shadow.offset[1] * fontSize / 100;
+            ctx.shadowBlur = textPart.shadow.blur;
+        }
+        else
+            ctx.shadowColor = "transparent";
+        ctx.fillText(textPart.text, x, y);
+        x += ctx.measureText(textPart.text).width + spaceWidth;
+    }
+    ctx.restore();
+}
+
+function getLines(ctx, text, width, fontSize) {
+    var spaceWidth = fontSize / 4;
+    // Generate the lines
+    var lines = [];
+    var line = [];
+    for (var i = 0; i < text.length; i++) {
+        var splitText = text[i].text.split(' ');
+        for (var j = 0; j < splitText.length; j++) {
+            var textRich = text[i];
+            textRich.text = splitText[j];
+            // Remove unnecessary info in the object
+            textRich = JSON.parse(JSON.stringify(textRich));
+            var lineWidth = getTotalWidth(ctx, line, fontSize, spaceWidth);
+            var textWidth = getTotalWidth(ctx, [textRich], fontSize, spaceWidth);
+            if (lineWidth + textWidth + spaceWidth > width) {
+                lines.push(line);
+                line = [];
+            }
+            line.push(textRich);
+        }
+    }
+    lines.push(line);
+    return lines;
+}
+
+function textBox(ctx, x, y, width, height, text, fontSize, align) {
+    if (align === void 0) { align = [1, 1]; }
+    ctx.save();
+    // Resize the textbox if the text is too long
+    var textWidth = getTotalWidth(ctx, text, fontSize);
+    if (textWidth > width)
+        fontSize *= width / textWidth;
+    ;
+    textWidth = getTotalWidth(ctx, text, fontSize);
+    // Calculate the position of the text
+    switch (align[0]) {
+        case 0:
+            y += fontSize;
+            break;
+        case 1:
+            y += (fontSize + height) / 2;
+            break;
+        case 2:
+            y += height;
+            break;
+    }
+    switch (align[1]) {
+        case 1:
+            x += (width - textWidth) / 2;
+            break;
+        case 2:
+            x += width - textWidth;
+            break;
+    }
+    paintText(ctx, text, x, y, fontSize);
+    ctx.restore();
+    return {
+        x: x,
+        y: y,
+        width: textWidth,
+        height: fontSize,
+    };
+}
+
+function wrapText(ctx, x, y, width, text, fontSize, align) {
+    if (align === void 0) { align = 1; }
+    ctx.save();
+    var lines = (0, getLines)(ctx, text, width, fontSize);
+    var spaceWidth = fontSize / 4;
+    for (var i = 0; i < lines.length; i++) {
+        var textWidth = (0, getTotalWidth)(ctx, lines[i], fontSize, spaceWidth);
+        switch (align) {
+            case 1:
+                x += (width - textWidth) / 2;
+                break;
+            case 2:
+                x += width - textWidth;
+                break;
+            case 3:
+                var rawTextWidth = (0, getTotalWidth)(ctx, lines[i], fontSize);
+                spaceWidth = (width - rawTextWidth) / (lines[i].length - 1);
+                if (spaceWidth < 4)
+                    spaceWidth = 4;
+                if (spaceWidth > 30)
+                    spaceWidth = 10;
+                break;
+        }
+        paintText(ctx, lines[i], x, y + fontSize * (i + 1), fontSize, spaceWidth);
+    }
+    ctx.restore();
+}
+</script>
+
+<h1>Cherry-Box Web Version</h1>
+
+<h2>Text Box</h2>
+
+<canvas id="canvas" width="1000" height="500"></canvas>
+
+<br />
+
+<input id="text" type="text" placeholder="Input text">
+<input id="fontsize" type="number" placeholder="Max font size" value="100">
+
+<h2>Wrap Box</h2>
+
+<canvas id="canvas2" width="1000" height="500"></canvas>
+
+<br />
+
+<input id="text2" type="text" placeholder="Input text">
+<input id="fontsize2" type="number" placeholder="Max font size" value="100">
+
+
+<script defer>
+    const textInput = document.getElementById('text');
+    const fontSizeInput = document.getElementById('fontsize');
+
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext("2d");
+
+    ctx.fillStyle="white"
+    ctx.fillRect(0,0,1000,500)
+
+    const textInput2 = document.getElementById('text2');
+    const fontSizeInput2 = document.getElementById('fontsize2');
+
+    const canvas2 = document.getElementById('canvas2');
+    const ctx2 = canvas2.getContext("2d");
+
+    ctx2.fillStyle="white"
+    ctx2.fillRect(0,0,1000,500)
+
+    const inputHandler = function(e) {
+
+        ctx.fillStyle="white"
+        ctx.fillRect(0,0,1000,500)
+
+        let upperText = [
+            {
+                text: textInput.value,
+                color: "black",
+                font: "ubuntu",
+            }
+        ];
+        textBox(ctx, 0, 0, 1000, 500, upperText, parseInt(fontSizeInput.value), [1, 1]);
+
+        ctx2.fillStyle="white"
+        ctx2.fillRect(0,0,1000,500)
+
+        let upperText2 = [
+            {
+                text: textInput2.value,
+                color: "black",
+                font: "ubuntu",
+            }
+        ];
+        wrapText(ctx2, 0, 0, 1000, upperText2, parseInt(fontSizeInput2.value), 3);
+    }
+
+    textInput.addEventListener('input', inputHandler);
+    fontSizeInput.addEventListener('input', inputHandler);
+
+    textInput2.addEventListener('input', inputHandler2);
+    fontSizeInput2.addEventListener('input', inputHandler2);
+</script>
