@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+
 :root {
     font-family: 'JetBrains Mono', monospace;
 
@@ -12,6 +13,11 @@
 
 html, body {
     height: 100%;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+* {
+    font-family: 'JetBrains Mono', monospace;
 }
 
 body {
