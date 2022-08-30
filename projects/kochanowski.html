@@ -7,12 +7,8 @@ permalink: /projects/kochanowski/
 
 <script>
 
-/**
- * Converts .pol to .js
- * @param src Kochanowski.js file content
- * @returns JavaScript file content
- */
- function convertToJs(src) {
+
+function convertToJs(src) {
     //Remove weird characters from the code.
     src = src.replaceAll(/\n|\r/g, '');
     //Split the file between operations, then remove undefined
@@ -76,6 +72,7 @@ let translatedKeywords = [
     ['Złam', 'break'],
     ['Łap', 'catch'],
     ['Klasa', 'class'],
+    ['Konstruktor', 'constructor'],
     ['Kontynuuj', 'continue'],
     ['Rób', 'do'],
     ['W przeciwnym wypadku', 'else'],
@@ -121,7 +118,10 @@ let translatedKeywords = [
     ['losowaLiczba', 'Math.random()'],
     ['losowanie', 'Math.random()'],
     // Dots (for objects)
-    [' z upchniętym ', '.'],
+    ['z upchniętym', '.'],
+    // Other
+    ['ja', 'this'],
+    ['to', 'this'],
 ];
 function wordConverter(lines) {
     for (let i in lines) {
