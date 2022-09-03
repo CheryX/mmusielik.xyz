@@ -6,7 +6,7 @@ permalink: /projects/cpp/
 ---
 
 <script>
-
+    
 /**
  * Converts .pol to .js
  * @param src Kochanowski.js file content
@@ -204,6 +204,19 @@ function countCharFixed(src, match) {
     </div>
 
 </div>
+
+<script>
+    document.getElementById("pol").value = `Załącz biblioteke <iostream>;
+Definiując Cout cout;
+
+Używając przestrzeni nazw std.
+
+Liczba Główna() {
+    Cout wypluj "Witaj świecie".
+    Zwróć 0.
+}`
+
+</script>
 
 <div class="compile-btn">
     <button id="compile" onclick="compile()">Compile</button>
