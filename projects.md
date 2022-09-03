@@ -12,6 +12,7 @@ permalink: /projects/
 ## On this page
 
 - [Kochanowski to JavaScript](/projects/kochanowski)
+- [Kochanowski to C++](/projects/cpp)
 - [cherry-box Web version](/projects/cherrybox)
 
 ## Other
