@@ -4,6 +4,7 @@ site: blog
 title:  "Why did I create a programing language?"
 date:   2022-09-07 20:27:24 +0200
 categories: kochanowski projects
+permalink: "/blog/kochanowski/"
 ---
 
 Hello everyone, this is my first blog post ever made. I don't know how to do that, so...
