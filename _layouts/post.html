@@ -1,21 +1,10 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/css/style.css">
-  </head>
-  <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/blog/">Blog</a>
-    </nav>
-    <h1>POST: {{ page.title }}</h1>
-    <section>
-      {{ content }}
-    </section>
-    <footer>
-      &copy; to me
-    </footer>
-  </body>
-</html>
+---
+layout: default
+---
+
+<h1>{{ page.title }}</h1>
+<p>Published on {{ page.date | date_to_string }}</p>
+
+<hr />
+
+{{ content }}

@@ -15,6 +15,14 @@
         {% endif %}
     </a>
 
+    <a href="/blog">
+        {% if page.site == "blog" %}
+            <div class="nav-item nav-active">Blog</div>
+        {% else %}
+            <div class="nav-item">Blog</div>
+        {% endif %}
+    </a>
+
     <a href="/projects">
         {% if page.site == "projects" %}
             <div class="nav-item nav-active">Projects</div>

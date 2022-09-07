@@ -114,6 +114,22 @@ footer {
     font-weight: 800;
 }
 
+.article > h2 {
+    font-size: 20pt;
+    color: var(--active);
+    font-weight: 800;
+}
+
+.article > h2 > a, .footnote {
+    color: var(--active);
+    padding: 0.25px 0;
+}
+
+.article > h2 > a:hover, .footnote:hover {
+    color: white;
+    background-color: var(--active);
+}
+
 .article > hr {
     color: var(--disabled);
     margin: 2rem 0;
