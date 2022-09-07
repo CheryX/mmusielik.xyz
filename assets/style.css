@@ -114,18 +114,23 @@ footer {
     font-weight: 800;
 }
 
-.article > h2 {
+.post > h2 {
     font-size: 20pt;
     color: var(--active);
     font-weight: 800;
+    margin: 0.4em 0;
 }
 
-.article > h2 > a, .footnote {
+.post {
+    margin: 2em 0;
+}
+
+.post > h2 > a, .footnote {
     color: var(--active);
     padding: 0.25px 0;
 }
 
-.article > h2 > a:hover, .footnote:hover {
+.post > h2 > a:hover, .footnote:hover {
     color: white;
     background-color: var(--active);
 }
@@ -236,4 +241,9 @@ input {
 .rss > img {
     margin: 0 15px;
     width: 1.5em;
+}
+
+.post {
+    border-left: var(--active) solid 4px;
+    padding-left: 1.5em;
 }

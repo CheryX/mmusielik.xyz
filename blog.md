@@ -11,7 +11,11 @@ site: blog
 
 {% for post in site.posts %}
 
-## [{{ post.title }}]({{ post.url }})
-{{ post.excerpt }}
+<div class="post">
+
+<h2> <a href="{{ post.url }}">{{ post.title }}</a> </h2>
+<p>{{ post.excerpt }}</p>
+
+</div>
 
 {% endfor %}
