@@ -224,3 +224,16 @@ input {
 .article img {
     max-width: 100%;
 }
+
+.rss {
+    display: flex;
+    align-items: center;
+    background-color: #00000020;
+    padding: 1rem 2rem;
+    justify-content: center;
+}
+
+.rss > img {
+    margin: 0 15px;
+    width: 1.5em;
+}

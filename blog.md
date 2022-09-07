@@ -5,6 +5,8 @@ important: false
 site: blog
 ---
 
+{% include rss.html %}
+
 # Latest Posts
 
 {% for post in site.posts %}
