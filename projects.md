@@ -11,8 +11,8 @@ permalink: /projects/
 
 ## On this page
 
-- [Kochanowski to JavaScript](/projects/kochanowski)
-- [Kochanowski to C++](/projects/cpp)
+- [Kochanowski (0.3.0) to JavaScript](/projects/kochanowski)
+- [Kochanowski (0.0.1c) to C++](/projects/cpp)
 - [cherry-box Web version](/projects/cherrybox)
 
 ## Other
