@@ -1,0 +1,18 @@
+/* This CSS file is used for more complex gradients, animations etc. NOT basic theming */
+
+@keyframes cheryxtext {
+    to {
+      background-position: 200% center;
+    }
+}
+
+.cheryx {
+    background: rgb(0,176,255);
+    background: linear-gradient(90deg, rgba(0,176,255,1) 0%, rgba(76,87,255,1) 25%, rgba(146,76,255,1) 50%, rgba(76,87,255,1) 75%, rgba(0,176,255,1) 100%);
+    background-size: 200% auto;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    
+    animation: cheryxtext 5s linear infinite;
+}

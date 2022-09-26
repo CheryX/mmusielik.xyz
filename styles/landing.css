@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+:root {
+    font-family: 'JetBrains Mono', monospace;
+
+    --active: #14B8A6;
+    --background: #09071b;
+    --backgroundLow: #09071bfe;
+    --disabled: #334155;
+    --cheryx: #0095ff;
+
+}
+
+html, body {
+    height: 100%;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+* {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+    margin: 0;
+    font: "JetBrains Mono";
+}
+
+#landing {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    background: linear-gradient(#09071bcc 100%, #09071bcc 100%), url("/assets/background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+
+}
+
+.blur-parent {
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about {
+    height: 100vh;
+
+    background-color: var(--background);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.title {
+    font-size: 6vh;
+    font-weight: 900;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
