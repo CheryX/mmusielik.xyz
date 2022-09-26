@@ -4,11 +4,12 @@
     font-family: 'JetBrains Mono', monospace;
 
     --active: #14B8A6;
-    --background: #09071b;
-    --backgroundLow: #09071bfe;
+    --background: #000f25;
     --disabled: #334155;
     --cheryx: #0095ff;
 
+    background-color: var(--background);
+    color: white;
 }
 
 html, body {
@@ -26,47 +27,51 @@ body {
 }
 
 #landing {
-    height: 100vh;
+    height: 30vh;
 
-    display: flex;
     justify-content: center;
     align-items: center;
-
     flex-direction: column;
 
-    background: linear-gradient(#09071bcc 100%, #09071bcc 100%), url("/assets/background.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: linear-gradient(90deg, #102046 0%, #132855 100%);
     color: white;
-
+    padding: 2rem;
 }
 
-.blur-parent {
-    backdrop-filter: blur(10px);
-    width: 100%;
-    height: 100%;
 
+section {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-#about {
-    height: 100vh;
-
-    background-color: var(--background);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+section.text {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
     flex-direction: column;
 }
 
 .title {
     font-size: 6vh;
     font-weight: 900;
+}
+
+.subtitle {
+    font-size: 3vh;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+    #landing {
+        height: 15vh;
+    }
+
+    .title {
+        font-size: 4vh;
+    }
+
+    .subtitle {
+        font-size: 2.5vh;
+    }
 }
 
 h1, h2, h3 {

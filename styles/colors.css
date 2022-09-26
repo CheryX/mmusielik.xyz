@@ -7,8 +7,8 @@
 }
 
 .cheryx {
-    background: rgb(0,176,255);
-    background: linear-gradient(90deg, rgba(0,176,255,1) 0%, rgba(76,87,255,1) 25%, rgba(146,76,255,1) 50%, rgba(76,87,255,1) 75%, rgba(0,176,255,1) 100%);
+    background: rgb(0,208,197);
+    background: linear-gradient(68deg, rgba(0,208,197,1) 0%, rgba(0,97,255,1) 25%, rgba(0,115,240,1) 50%, rgba(0,97,255,1) 75%, rgba(0,208,197,1) 100%);
     background-size: 200% auto;
     background-clip: text;
 
