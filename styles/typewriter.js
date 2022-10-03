@@ -1,3 +1,21 @@
+/* Docs:
+
+This file is a cool library to make typewriting effect.
+
+Example use:
+<span order="3" class="tp">janek</span>
+
+This means that the word `janek` will be typewritten 3rd in order (you can use negatives).
+
+Classes:
+- tp: Typewriter effect
+- tp-or: Seperates string by "|"
+- tp-loop: It loops the typewriting effect
+
+if you use it anywhere you can credit me i guess, not required tho (CheryX)
+
+*/
+
 const typewriters = document.getElementsByClassName("tp");
 const speed = 100;
 
