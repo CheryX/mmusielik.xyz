@@ -1,4 +1,29 @@
-/* This CSS file is used for more complex gradients, animations etc. NOT basic theming */
+/* This CSS file is used for making animations, colors etc. */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+:root {
+  font-family: 'JetBrains Mono', monospace;
+
+  --active: #14B8A6;
+  --background: #000f25;
+  --disabled: #334155;
+  --cheryx: #0095ff;
+
+  background: radial-gradient(58.67% 104.31% at 0.94% -2.64%, rgba(0, 26, 255, 0.1) 0%, rgba(0, 26, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(45.42% 80.74% at 97.71% 144.63%, rgba(204, 0, 255, 0.1) 0%, rgba(204, 0, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(122.09deg, rgba(0, 26, 255, 0.1) 16.79%, rgba(143, 0, 255, 0.1) 86.35%), #000000;
+  color: white;
+}
+
+html, body {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+* {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+body {
+  font: "JetBrains Mono";
+}
 
 @keyframes cheryxtext {
     to {
@@ -7,12 +32,43 @@
 }
 
 .cheryx {
-    background: rgb(0,208,197);
-    background: linear-gradient(68deg, rgba(0,208,197,1) 0%, rgba(0,97,255,1) 25%, rgba(0,115,240,1) 50%, rgba(0,97,255,1) 75%, rgba(0,208,197,1) 100%);
-    background-size: 200% auto;
-    background-clip: text;
-
+    background: linear-gradient(120deg, #00B2FF 0%, #8F00FF 100%);
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
     
     animation: cheryxtext 5s linear infinite;
+}
+
+.title {
+  font-size: 6.5vh;
+  font-weight: 900;
+}
+
+.subtitle {
+  font-size: 3.5vh;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 800px) {
+  .title {
+      font-size: 4vh;
+  }
+
+  .subtitle {
+      font-size: 2.5vh;
+  }
+}
+
+#scrollDown {
+  text-align: center;
+  font-size: 5em;
+  background: #607ABC30;
+  box-shadow: 0px 0px 48px -13px rgba(255, 255, 255, 0.123);
+  border-radius: 6px;
+}
+
+#scrollDown > span {
+  text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.356);
 }

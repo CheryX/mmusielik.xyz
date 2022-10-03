@@ -1,79 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
-
-:root {
-    font-family: 'JetBrains Mono', monospace;
-
-    --active: #14B8A6;
-    --background: #000f25;
-    --disabled: #334155;
-    --cheryx: #0095ff;
-
-    background-color: var(--background);
-    color: white;
-}
-
-html, body {
-    height: 100%;
-    font-family: 'JetBrains Mono', monospace;
-}
-
-* {
-    font-family: 'JetBrains Mono', monospace;
-}
-
 body {
     margin: 0;
-    font: "JetBrains Mono";
 }
 
 #landing {
-    height: 30vh;
+    height: 100vh;
 
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2em;
+
+    display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-
-    background: linear-gradient(90deg, #102046 0%, #132855 100%);
-    color: white;
-    padding: 2rem;
 }
 
+.half, .life {
+   width: 100%;
 
-section {
-    display: flex;
-}
-
-section.text {
-    width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    flex-direction: column;
-}
-
-.title {
-    font-size: 6vh;
-    font-weight: 900;
-}
-
-.subtitle {
-    font-size: 3vh;
-    font-weight: 600;
-}
-
-@media screen and (max-width: 800px) {
-    #landing {
-        height: 15vh;
-    }
-
-    .title {
-        font-size: 4vh;
-    }
-
-    .subtitle {
-        font-size: 2.5vh;
-    }
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
 }
 
 h1, h2, h3 {
     margin: 0;
+}
+
+#scrollDown {
+    margin: 2rem;
+    width: fit-content;
+    aspect-ratio: 1/1;
 }
