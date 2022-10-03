@@ -1,33 +1,51 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 #landing {
-    height: 100vh;
+  height: 100vh;
 
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2em;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2em;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.half, .life {
-   width: 100%;
+.half,
+.life {
+  width: 100%;
 
-   display: flex;
-   justify-content: center;
-   flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-h1, h2, h3 {
-    margin: 0;
+h1,
+h2,
+h3 {
+  margin: 0;
 }
 
 #scrollDown {
-    margin: 2rem;
-    width: fit-content;
-    aspect-ratio: 1/1;
+  margin: 2rem;
+  width: fit-content;
+  aspect-ratio: 1/1;
+}
+
+.nav {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+}
+
+.nav-item {
+  padding: 1.25rem 2rem;
+  margin: 0.5rem 0.25rem;
 }

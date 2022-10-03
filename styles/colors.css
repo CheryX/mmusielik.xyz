@@ -1,24 +1,42 @@
 /* This CSS file is used for making animations, colors etc. */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap");
 
 :root {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
 
-  --active: #14B8A6;
+  --active: #14b8a6;
   --background: #000f25;
   --disabled: #334155;
   --cheryx: #0095ff;
 
-  background: radial-gradient(58.67% 104.31% at 0.94% -2.64%, rgba(0, 26, 255, 0.1) 0%, rgba(0, 26, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(45.42% 80.74% at 97.71% 144.63%, rgba(204, 0, 255, 0.1) 0%, rgba(204, 0, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, linear-gradient(122.09deg, rgba(0, 26, 255, 0.1) 16.79%, rgba(143, 0, 255, 0.1) 86.35%), #000000;
+  background: radial-gradient(
+        58.67% 104.31% at 0.94% -2.64%,
+        rgba(0, 26, 255, 0.1) 0%,
+        rgba(0, 26, 255, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    radial-gradient(
+        45.42% 80.74% at 97.71% 144.63%,
+        rgba(204, 0, 255, 0.1) 0%,
+        rgba(204, 0, 255, 0) 100%
+      )
+      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+    linear-gradient(
+      122.09deg,
+      rgba(0, 26, 255, 0.1) 16.79%,
+      rgba(143, 0, 255, 0.1) 86.35%
+    ),
+    #000000;
   color: white;
 }
 
-html, body {
-  font-family: 'JetBrains Mono', monospace;
+html,
+body {
+  font-family: "JetBrains Mono", monospace;
 }
 
 * {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
 }
 
 body {
@@ -26,23 +44,54 @@ body {
 }
 
 @keyframes cheryxtext {
-    to {
-      background-position: 200% center;
-    }
+  to {
+    background-position: 200% center;
+  }
 }
 
 .cheryx {
-    background: linear-gradient(120deg, #00B2FF 0%, #8F00FF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    
-    animation: cheryxtext 5s linear infinite;
+  background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+
+  animation: cheryxtext 5s linear infinite;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0px 4px 11px rgba(204, 0, 255, 0.3),
+                 0px -4px 11px rgba(0, 110, 255, 0.356);
+  }
+  20% {
+    text-shadow: -4px -4px 11px rgba(204, 0, 255, 0.3),
+                 4px 4px 11px rgba(0, 110, 255, 0.356);
+  }
+  40% {
+    text-shadow: 4px 0px 11px rgba(204, 0, 255, 0.3),
+                 0px -4px 11px rgba(0, 110, 255, 0.356);
+  }
+  60% {
+    text-shadow: -4px 4px 11px rgba(204, 0, 255, 0.3),
+                 -4px 4px 11px rgba(0, 110, 255, 0.356);
+  }
+  80% {
+    text-shadow: 0px -4px 11px rgba(204, 0, 255, 0.3),
+                 0px 4px 11px rgba(0, 110, 255, 0.356);
+  }
+  100% {
+    text-shadow: 0px 4px 11px rgba(204, 0, 255, 0.3),
+                 4px -4px 11px rgba(0, 110, 255, 0.356);
+  }
+}
+
+.text-anim {
+  animation: glowing linear 5s infinite;
 }
 
 .title {
-  font-size: 6.5vh;
+  font-size: 7vh;
   font-weight: 900;
 }
 
@@ -53,22 +102,48 @@ body {
 
 @media screen and (max-width: 800px) {
   .title {
-      font-size: 4vh;
+    font-size: 4vh;
   }
 
   .subtitle {
-      font-size: 2.5vh;
+    font-size: 2.5vh;
   }
 }
 
 #scrollDown {
   text-align: center;
-  font-size: 5em;
-  background: #607ABC30;
+  font-size: 7vh;
+  background: #607abc30;
   box-shadow: 0px 0px 48px -13px rgba(255, 255, 255, 0.123);
   border-radius: 6px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+#scrollDown:hover {
+  background: #6083dd30;
+  box-shadow: 0px 0px 48px -13px rgba(255, 255, 255, 0.123);
+  transform: translateY(5px);
+  scale: 1.05;
 }
 
 #scrollDown > span {
   text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.356);
+}
+
+.nav > a {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+}
+
+.nav-item:hover, .nav-active {
+  background: linear-gradient(180deg, #96CDFF 0%, #E993FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: glowing linear 5s infinite;
+  animation-delay: 50ms;
 }
