@@ -7,7 +7,7 @@ body {
 
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2em;
+  padding: 0 10em;
 
   display: flex;
   justify-content: center;
@@ -48,4 +48,57 @@ h3 {
 .nav-item {
   padding: 1.25rem 2rem;
   margin: 0.5rem 0.25rem;
+}
+
+@media screen and (max-width: 1500px) {
+  .life {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #landing {
+    padding: 0 2em;
+  }
+
+  .nav-item {
+    padding: 1.25rem;
+  }
+}
+
+.nav-mobile {
+  display: none;
+}
+
+.nav-pc {
+  display: block;
+}
+
+@media screen and (max-width: 800px) {
+  .nav-mobile {
+    display: block;
+  }
+  
+  .nav-pc {
+    display: none;
+  }
+}
+
+.alert {
+  background-color: #afaf165e;
+  border-left: #ffff00 8px solid;
+  padding: 5px 20px;
+  position: absolute;
+  top: 10%;
+  width: 30%;
+  min-width: 300px;
+  max-width: 900px;
+
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+
+  transition-duration: 200ms;
+  opacity: 0;
 }

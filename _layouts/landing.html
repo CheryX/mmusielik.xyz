@@ -10,12 +10,20 @@
 		<link rel="stylesheet" href="/styles/prism.css">
 
 		<!-- Utilites -->
-		<script src="/styles/typewriter.js" defer></script>
+		<script src="/scripts/typewriter.js" defer></script>
+		<script src="/scripts/alerts.js" defer></script>
 	</head>
 	
 	<body>
 
 		{% include header.html %}
+
+		<!-- as you can see the development process is very intense here -->
+		<!-- BEING LED BY THE BLIND, TIME TO LEAVE THEM ALL BEHIIIIIIIIND, BREAKING OUT OF MY PAIN, NOTHING BUR??, IM  MY OWN MASATER NOWWWWW -->
+		<div class="alert" id="alertBg">
+			<b>Warning:</b> <br />
+			<span id="alertContent">I DONT KNOW THE SEASON OR WHAT IS THE RASON IM STANDING THRERE</span>
+		</div>
 
 		<!-- Top thing -->
 		<section id="landing">
@@ -28,7 +36,7 @@
 				</div>
 
 				<!-- Bravo six. Going *down* -->
-				<div id="scrollDown">
+				<div id="scrollDown" onclick="customAlert('hardcode dis')">
 					<span>▼</span>
 				</div>
 
@@ -36,7 +44,9 @@
 
 			<!-- Gordon Freeman in the flesh. Or rather, in the hazard suit. -->
 			<div class="life">
-				eee
+				
+				<img src="" alt="" class="center">
+
 			</div>
 
 		</section>

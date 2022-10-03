@@ -110,6 +110,16 @@ body {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .title {
+    font-size: 50px;
+  }
+
+  .subtitle {
+    font-size: 30px;
+  }
+}
+
 #scrollDown {
   text-align: center;
   font-size: 60px;
@@ -138,12 +148,16 @@ body {
   color: white;
 }
 
+.nav-item {
+  transition-duration: 200ms;
+}
+
 .nav-item:hover, .nav-active {
+  color: white;
   background: linear-gradient(180deg, #96CDFF 0%, #E993FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
   animation: glowing linear 5s infinite;
-  animation-delay: 50ms;
 }

@@ -57,18 +57,10 @@ body {
     margin: 0.3rem;
 }
 
-
 .nav {
-    display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-}
-
-@media screen and (min-width: 600px) {
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav > a {
@@ -247,3 +239,21 @@ input {
     border-left: var(--active) solid 4px;
     padding-left: 1.5em;
 }
+
+.nav-mobile {
+    display: none;
+  }
+  
+  .nav-pc {
+    display: block;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .nav-mobile {
+      display: block;
+    }
+    
+    .nav-pc {
+      display: none;
+    }
+  }
