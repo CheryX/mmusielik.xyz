@@ -1,259 +1,274 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap");
 
 :root {
-    font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
 
-    --active: #14B8A6;
-    --background: #0F172A;
-    --disabled: #334155;
+  --active: #14b8a6;
+  --background: #0f172a;
+  --disabled: #334155;
 
-    background-color: var(--background);
-    color: white;
+  background-color: var(--background);
+  color: white;
 }
 
-html, body {
-    height: 100%;
-    font-family: 'JetBrains Mono', monospace;
+html,
+body {
+  height: 100%;
+  font-family: "JetBrains Mono", monospace;
 }
 
 * {
-    font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
 }
 
 body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .content {
-    flex: 1 0 auto;
-    margin: 0 0.5rem;
+  flex: 1 0 auto;
+  margin: 0 0.5rem;
 }
 
 .article {
-    max-width: 1000px;
-    margin: 3rem auto 0 auto;
+  max-width: 1000px;
+  margin: 3rem auto 0 auto;
 }
 
 .important {
-    max-width: 500px;
-    margin: 20rem auto;
+  max-width: 500px;
+  margin: 20rem auto;
 }
 
-.important > h1  {
-    font-size: 60pt;
-    padding: 0.05rem;
-    display: inline;
-    color: var(--active);
-    font-weight: 800;
+.important > h1 {
+  font-size: 60pt;
+  padding: 0.05rem;
+  display: inline;
+  color: var(--active);
+  font-weight: 800;
 }
 
 .important > p {
-    font-size: 15pt;
+  font-size: 15pt;
 }
 
-.important > p, .important > h1 {
-    margin: 0.3rem;
+.important > p,
+.important > h1 {
+  margin: 0.3rem;
 }
 
 .nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav > a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .nav-item {
-    padding: 1.25rem 2rem;
-    margin: 0.5rem 0.25rem;
-    color: var(--active);
+  padding: 1.25rem 2rem;
+  margin: 0.5rem 0.25rem;
+  color: var(--active);
 }
 
-.nav-item:hover, .nav-active {
-    background-color: var(--active);
-    color: white;
+.nav-item:hover,
+.nav-active {
+  background-color: var(--active);
+  color: white;
 }
 
-p, li {
-    margin: 0.5rem 0;
+p,
+li {
+  margin: 0.5rem 0;
 }
 
-p > a, li > a {
-   color: var(--active);
-   padding: 0.25rem 0;
+p > a,
+li > a {
+  color: var(--active);
+  padding: 0.25rem 0;
 }
 
-p > a:hover, li > a:hover {
-    color: white;
-    background-color: var(--active);
+p > a:hover,
+li > a:hover {
+  color: white;
+  background-color: var(--active);
 }
 
 footer {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
 }
 
 .article > h1 {
-    font-size: 30pt;
-    color: var(--active);
-    font-weight: 800;
+  font-size: 30pt;
+  color: var(--active);
+  font-weight: 800;
 }
 
 .post > h2 {
-    font-size: 20pt;
-    color: var(--active);
-    font-weight: 800;
-    margin: 0.4em 0;
+  font-size: 20pt;
+  color: var(--active);
+  font-weight: 800;
+  margin: 0.4em 0;
 }
 
 .post {
-    margin: 2em 0;
+  margin: 2em 0;
 }
 
-.post > h2 > a, .footnote {
-    color: var(--active);
-    padding: 0.25px 0;
+.post > h2 > a,
+.footnote {
+  color: var(--active);
+  padding: 0.25px 0;
 }
 
-.post > h2 > a:hover, .footnote:hover {
-    color: white;
-    background-color: var(--active);
+.post > h2 > a:hover,
+.footnote:hover {
+  color: white;
+  background-color: var(--active);
 }
 
 .article > hr {
-    color: var(--disabled);
-    margin: 2rem 0;
+  color: var(--disabled);
+  margin: 2rem 0;
 }
 
-.products, .contacts {
-    padding: 2rem;
-    margin: 3rem 0;
-    background-color: #00000020;
-    display: grid;
+.products,
+.contacts {
+  padding: 2rem;
+  margin: 3rem 0;
+  background-color: #00000020;
+  display: grid;
 }
 
 .products {
-    grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 @media screen and (min-width: 600px) {
-    .products {
-        grid-template-columns: repeat(4,minmax(0,1fr));
-    }
+  .products {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .contacts {
-    grid-template-columns: repeat(3,minmax(0,1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.product, .contact {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
+.product,
+.contact {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
-.products > a, .contacts > a {
-    color: white;
-    text-decoration: none;
+.products > a,
+.contacts > a {
+  color: white;
+  text-decoration: none;
 }
 
-.product > img, .contact > img {
-    width: 100px;
+.product > img,
+.contact > img {
+  width: 100px;
 }
 
 .compiler {
-    width: 100%;
-    display: flex;
+  width: 100%;
+  display: flex;
 }
 
 .compiler > .side {
-    flex: 50%;
+  flex: 50%;
 }
 
 .compiler > .side > textarea {
-    width: 100%;
-    height: 550px;
-    resize: none;
-    background-color: var(--disabled);
-    color: white;
-    border: none;
-    font-size: 15pt;
-    outline: var(--background) solid 5px;
+  width: 100%;
+  height: 550px;
+  resize: none;
+  background-color: var(--disabled);
+  color: white;
+  border: none;
+  font-size: 15pt;
+  outline: var(--background) solid 5px;
 }
 
 #compile {
-    text-align: center;
-    margin: 1rem;
-    padding: 1.25rem 2rem;
-    margin: 0.5rem 0.25rem;
-    color: white;
-    display: inline-block;
-    background-color: var(--active);
-    border: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12pt;
-
+  text-align: center;
+  margin: 1rem;
+  padding: 1.25rem 2rem;
+  margin: 0.5rem 0.25rem;
+  color: white;
+  display: inline-block;
+  background-color: var(--active);
+  border: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12pt;
 }
 
 .compile-btn {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 input {
-    padding: 1rem;
-    background-color: var(--active);
-    color: white;
-    border: none;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12pt;
+  padding: 1rem;
+  background-color: var(--active);
+  color: white;
+  border: none;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12pt;
 }
 
 .article img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .rss {
-    display: flex;
-    align-items: center;
-    background-color: #00000020;
-    padding: 1rem 2rem;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color: #00000020;
+  padding: 1rem 2rem;
+  justify-content: center;
 }
 
 .rss > img {
-    margin: 0 15px;
-    width: 1.5em;
+  margin: 0 15px;
+  width: 1.5em;
 }
 
 .post {
-    border-left: var(--active) solid 4px;
-    padding-left: 1.5em;
+  border-left: var(--active) solid 4px;
+  padding-left: 1.5em;
 }
 
 .nav-mobile {
-    display: none;
-  }
-  
-  .nav-pc {
+  display: none;
+}
+
+.nav-pc {
+  display: block;
+}
+
+@media screen and (max-width: 800px) {
+  .nav-mobile {
     display: block;
   }
-  
-  @media screen and (max-width: 800px) {
-    .nav-mobile {
-      display: block;
-    }
-    
-    .nav-pc {
-      display: none;
-    }
+
+  .nav-item {
+    padding: 1.25rem;
   }
+
+  .nav-pc {
+    display: none;
+  }
+}
