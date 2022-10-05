@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap");
 
 :root {
+  scroll-behavior: smooth;
   font-family: "JetBrains Mono", monospace;
 
   --active: #14b8a6;
@@ -9,25 +10,8 @@
   --disabled: #334155;
   --cheryx: #0095ff;
 
-  background: radial-gradient(
-        58.67% 104.31% at 0.94% -2.64%,
-        rgba(0, 26, 255, 0.1) 0%,
-        rgba(0, 26, 255, 0) 100%
-      )
-      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-    radial-gradient(
-        45.42% 80.74% at 97.71% 144.63%,
-        rgba(204, 0, 255, 0.1) 0%,
-        rgba(204, 0, 255, 0) 100%
-      )
-      /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
-    linear-gradient(
-      122.09deg,
-      rgba(0, 26, 255, 0.1) 16.79%,
-      rgba(143, 0, 255, 0.1) 86.35%
-    ),
-    #000000;
   color: white;
+  background: radial-gradient(41.41% 14.67% at 111.54% 68.77%, rgba(219, 0, 255, 0.1) 0%, rgba(219, 0, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(49.25% 17.81% at -14.15% 100.72%, rgba(0, 71, 255, 0.1) 0%, rgba(36, 0, 255, 0.028) 40.98%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(62.68% 22.29% at -37.19% 56.96%, rgba(82, 255, 0, 0.1) 0%, rgba(36, 255, 0, 0) 100%), radial-gradient(46.95% 18.21% at -4.97% 1.23%, rgba(0, 26, 255, 0.1) 0%, rgba(0, 26, 255, 0) 100%), radial-gradient(49.48% 17.59% at 120.31% 25.24%, rgba(204, 0, 255, 0.1) 0%, rgba(204, 0, 255, 0) 100%), linear-gradient(122.09deg, rgba(0, 26, 255, 0.1) 16.79%, rgba(143, 0, 255, 0.1) 29.11%, rgba(14, 23, 255, 0.1) 41.43%, rgba(143, 0, 255, 0.1) 55.83%, rgba(27, 21, 255, 0.1) 71.13%, rgba(134, 2, 255, 0.1) 86.35%), #000000;
 }
 
 html,
@@ -176,28 +160,28 @@ body {
 
 @keyframes glowingHigh {
   0% {
-    box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.2),
-                 0px -4px 50px rgba(0, 110, 255, 0.2);
+    box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
+                 0px -4px 50px rgba(0, 110, 255, 0.1);
   }
   20% {
-    box-shadow: -4px -4px 50px rgba(204, 0, 255, 0.2),
-                 4px 4px 50px rgba(0, 110, 255, 0.2);
+    box-shadow: -4px -4px 50px rgba(204, 0, 255, 0.1),
+                 4px 4px 50px rgba(0, 110, 255, 0.1);
   }
   40% {
-    box-shadow: 4px 0px 50px rgba(204, 0, 255, 0.2),
-                 0px -4px 50px rgba(0, 110, 255, 0.2);
+    box-shadow: 4px 0px 50px rgba(204, 0, 255, 0.1),
+                 0px -4px 50px rgba(0, 110, 255, 0.1);
   }
   60% {
-    box-shadow: -4px 4px 50px rgba(204, 0, 255, 0.2),
-                 -4px 4px 50px rgba(0, 110, 255, 0.2);
+    box-shadow: -4px 4px 50px rgba(204, 0, 255, 0.1),
+                 -4px 4px 50px rgba(0, 110, 255, 0.1);
   }
   80% {
-    box-shadow: 0px -4px 50px rgba(204, 0, 255, 0.2),
-                 0px 4px 50px rgba(0, 110, 255, 0.2);
+    box-shadow: 0px -4px 50px rgba(204, 0, 255, 0.1),
+                 0px 4px 50px rgba(0, 110, 255, 0.1);
   }
   100% {
-    box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.2),
-                 4px -4px 50px rgba(0, 110, 255, 0.2);
+    box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
+                 4px -4px 50px rgba(0, 110, 255, 0.1);
   }
 }
 
@@ -216,8 +200,8 @@ body {
 .life > img {
   border-radius: 50%;
   animation:
-    wobble ease-in-out 5s infinite,
-    glowingHigh linear 5s infinite;
+    wobble ease-in-out 7s infinite,
+    glowingHigh linear 4s infinite;
 }
 
 .alert {

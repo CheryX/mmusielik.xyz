@@ -16,17 +16,21 @@
 	</head>
 	
 	<body>
+		
+		<!-- Add social links in the top right corner -->
+		<!-- CHERYX KURWA NIE ZAPOMNIJ TEGO ZJEBIE -->
 
 		{% include header.html %}
-
+		
 		<!-- Warning Modal, used mostly for easter eggs (probably) -->
 		<div class="alert" id="alertBg">
 			<b>Warning:</b> <br />
 			<span id="alertContent">Example text</span>
 		</div>
-
+		
 		<!-- Top thing -->
 		<section id="landing">
+
 
 			<div class="half">
 				
@@ -36,7 +40,7 @@
 				</div>
 
 				<!-- Bravo six. Going *down* -->
-				<div id="scrollDown" onclick="customAlert('There is nothing down there...')">
+				<div id="scrollDown" onclick="window.scrollBy(0, window.innerHeight/2)">
 					<span>▼</span>
 				</div>
 
@@ -52,11 +56,10 @@
 		</section>
 		
 		<!-- Quick access to most important projects that I/people would want to access. -->
-		<section id="quick">
-			
-			
-
-		</section>
+		<section id="quick"></section>
+		<section id="quick"></section>
+		<section id="quick"></section>
+		<section id="quick"></section>
 
 	</body>
 </html>
