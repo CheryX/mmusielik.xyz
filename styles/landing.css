@@ -23,6 +23,10 @@ body {
   flex-direction: column;
 }
 
+.life {
+  align-items: center;
+}
+
 h1,
 h2,
 h3 {
@@ -42,7 +46,7 @@ h3 {
   justify-content: center;
   align-items: center;
 
-  position: fixed;
+  position: absolute;
 }
 
 .nav-item {
@@ -85,20 +89,25 @@ h3 {
 }
 
 .alert {
-  background-color: #afaf165e;
-  border-left: #ffff00 8px solid;
+  z-index: 9999;
+
   padding: 5px 20px;
-  position: absolute;
+  position: fixed;
   top: 10%;
   width: 30%;
   min-width: 300px;
   max-width: 900px;
-
+  
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-
-  transition-duration: 200ms;
-  opacity: 0;
 }
+
+.life > img {
+  width: 60%;
+}
+
+/* #quick {
+  height: 100vh;
+} */
