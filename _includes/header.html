@@ -1,41 +1,53 @@
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
 <nav class="nav">
     <a href="/">
         {% if page.site == "home" %}
-            <div class="nav-item nav-active">Home</div>
+            <div class="nav-item nav-active nav-pc">Home</div>
+            <div class="nav-item nav-active nav-mobile"><span class="material-symbols-outlined">home</span></div>
         {% else %}
-            <div class="nav-item">Home</div>
+            <div class="nav-item nav-pc">Home</div>
+            <div class="nav-item nav-mobile"><span class="material-symbols-outlined">home</span></div>
         {% endif %}
     </a>
 
     <a href="/about">
         {% if page.site == "about" %}
-            <div class="nav-item nav-active">About</div>
+            <div class="nav-item nav-active nav-pc">About</div>
+            <div class="nav-item nav-active nav-mobile"><span class="material-symbols-outlined">person</span></div>
         {% else %}
-            <div class="nav-item">About</div>
+            <div class="nav-item nav-pc">About</div>
+            <div class="nav-item nav-mobile"><span class="material-symbols-outlined">person</span></div>
         {% endif %}
     </a>
 
     <a href="/blog">
         {% if page.site == "blog" %}
-            <div class="nav-item nav-active">Blog</div>
+            <div class="nav-item nav-active nav-pc">Blog</div>
+            <div class="nav-item nav-active nav-mobile"><span class="material-symbols-outlined">rss_feed</span></div>
         {% else %}
-            <div class="nav-item">Blog</div>
+            <div class="nav-item nav-pc">Blog</div>
+            <div class="nav-item nav-mobile"><span class="material-symbols-outlined">rss_feed</span></div>
         {% endif %}
     </a>
 
     <a href="/projects">
         {% if page.site == "projects" %}
-            <div class="nav-item nav-active">Projects</div>
+            <div class="nav-item nav-active nav-pc">Projects</div>
+            <div class="nav-item nav-active nav-mobile"><span class="material-symbols-outlined">terminal</span></div>
         {% else %}
-            <div class="nav-item">Projects</div>
+            <div class="nav-item nav-pc">Projects</div>
+            <div class="nav-item nav-mobile"><span class="material-symbols-outlined">terminal</span></div>
         {% endif %}
     </a>
 
     <a href="/contact">
         {% if page.site == "contact" %}
-            <div class="nav-item nav-active">Contact</div>
+            <div class="nav-item nav-active nav-pc">Contact</div>
+            <div class="nav-item nav-active nav-mobile"><span class="material-symbols-outlined">contact_page</span></div>
         {% else %}
-            <div class="nav-item">Contact</div>
+            <div class="nav-item nav-pc">Contact</div>
+            <div class="nav-item nav-mobile"><span class="material-symbols-outlined">contact_page</span></div>
         {% endif %}
     </a>
 </nav>
