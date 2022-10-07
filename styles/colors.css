@@ -210,3 +210,10 @@ body {
   transition-duration: 200ms;
   opacity: 0;
 }
+
+.projects > div {
+  background-color: #607abc30;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 10px;
+}
