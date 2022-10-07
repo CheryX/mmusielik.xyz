@@ -208,6 +208,7 @@ footer {
     border: none;
     font-family: 'JetBrains Mono', monospace;
     font-size: 12pt;
+    cursor: pointer;
 
 }
 
@@ -246,4 +247,14 @@ input {
 .post {
     border-left: var(--active) solid 4px;
     padding-left: 1.5em;
+}
+
+.white-input {
+    background-color: var(--disabled);
+    color: white;
+}
+
+.white-input:disabled {
+    background-color: #161d25;
+    color: white;
 }
