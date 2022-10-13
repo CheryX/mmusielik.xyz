@@ -125,14 +125,14 @@ body {
   text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.356);
 }
 
-.nav > a {
+.nav > a, #socials > a {
   text-decoration: none;
   font-size: 22px;
   font-weight: 600;
   color: white;
 }
 
-.nav-item {
+.nav-item, #socials > a > div {
   transition-duration: 200ms;
 }
 
@@ -144,6 +144,10 @@ body {
   background-clip: text;
   text-fill-color: transparent;
   animation: glowing linear 5s infinite;
+}
+
+#socials > a > div:hover {
+  filter: brightness(0.8);
 }
 
 @keyframes wobble {

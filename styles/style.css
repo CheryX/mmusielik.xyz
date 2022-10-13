@@ -251,24 +251,50 @@ input {
   padding-left: 1.5em;
 }
 
-.nav-mobile {
-  display: none;
-}
-
-.nav-pc {
-  display: block;
+.nav-mobile, .mobile {
+  display: none !important;
 }
 
 @media screen and (max-width: 800px) {
-  .nav-mobile {
-    display: block;
+  .nav-mobile, .mobile {
+    display: block !important;
   }
-
+  
   .nav-item {
     padding: 1.25rem;
   }
 
-  .nav-pc {
-    display: none;
+  .nav-pc, .desktop {
+    display: none !important;
   }
+}
+
+#socials {
+  position: absolute;
+  top: 0;
+  right: 2%;
+
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+#socials > a > div {
+  padding: 1.25rem .75rem;
+  margin: 0.5rem 0.25rem;
+}
+
+#socials > a > div > img {
+  height: 1em;
+}
+
+.nav > a, #socials > a {
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+}
+
+.nav-item, #socials > a > div {
+  transition-duration: 200ms;
 }
