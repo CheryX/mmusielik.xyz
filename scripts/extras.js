@@ -55,12 +55,26 @@ async function doMagicStuff() {
 }
 
 const toAnimateElements = document.querySelectorAll('.show-on-scroll');
-
 toAnimateElements.forEach(e => {
-
-    new IntersectionObserver(entries => {
-        e.classList.toggle( 'visible', entries[0].isIntersecting );
-        // e.classList.toggle( 'visible', true );
-    }).observe( e );
-
+    e.style.opacity = !isInViewport(e) ? '0' : '1';
+    e.style.transform = !isInViewport(e) ? 'translateY(20px)' : 'translateY(0px)';
 });
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 30 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+document.addEventListener('scroll', (n => {
+    toAnimateElements.forEach(e => {
+        e.style.opacity = !isInViewport(e) ? '0' : '1';
+        e.style.transform = !isInViewport(e) ? 'translateY(20px)' : 'translateY(0px)';
+    });
+}))
+
+    
