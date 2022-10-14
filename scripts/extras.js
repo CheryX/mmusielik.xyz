@@ -60,6 +60,7 @@ toAnimateElements.forEach(e => {
 
     new IntersectionObserver(entries => {
         e.classList.toggle( 'visible', entries[0].isIntersecting );
+        // e.classList.toggle( 'visible', true );
     }).observe( e );
 
 });

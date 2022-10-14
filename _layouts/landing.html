@@ -16,9 +16,6 @@
 	
 	<body>
 		
-		<!-- Add social links in the top right corner -->
-		<!-- Note to self: Please don't forget to do this when you commit at 4am :) -->
-
 		{% include header.html %}
 		
 		<!-- Warning Modal, used mostly for easter eggs (probably) -->
@@ -38,7 +35,7 @@
 					<h2 class="subtitle"><span order="3" class="tp">I am </span> <span order="4" class="tp tp-or tp-loop cheryx text-anim">a programmer|a student|bored</span></h2>
 				</div>
 
-				<!-- Bravo six. Going *down* -->
+				<!-- Bravo six. Scrolling down -->
 				<div id="scrollDown" onclick="window.scrollBy(0, window.innerHeight/2)">
 					<span>▼</span>
 				</div>
@@ -60,12 +57,12 @@
 			<h1 class="title" style="text-align: right;">Featured <span class="cheryx text-anim">Projects</span></h1>
 
 			<div class="projects">
-				<div class="item show-on-scroll">1</div>
-				<div class="item show-on-scroll">2</div>
-				<div class="item show-on-scroll">3</div>  
-				<div class="item show-on-scroll">4</div>
-				<div class="item show-on-scroll">5</div>
-				<div class="item show-on-scroll">6</div>
+				{% include project.html link="https://github.com/cheryx/kochanowski.js" title="Kochanowski.js" content="Polish Programming Language" %}
+				{% include project.html link="https://github.com/cheryx/cherry-box" title="cherry-box" content="Align text in node-canvas" %}
+				{% include project.html disabled="true" link="/" title="zimno" content="Soon to be revealed something" %}
+				{% include project.html link="https://c.mmusielik.xyz" title="Project Cramer" content="How to survive at school" %}
+				{% include project.html link="/" title="mmusielik.xyz" content="Literally this website" %}
+				{% include project.html disabled="true" link="/" title="tobiasBot" content="Inactive discord bot [*]" %}
 			</div>
 
 		</section>

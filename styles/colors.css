@@ -209,13 +209,13 @@ body {
 }
 
 .alert {
-  background-color: #afaf165e;
+  background-color: #4a411cc5;
   border-left: #ffff00 8px solid;
   transition-duration: 200ms;
   opacity: 0;
 }
 
-.projects > div {
+.item {
   background-color: #607abc30;
   text-align: center;
   font-size: 30px;
