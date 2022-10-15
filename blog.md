@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Blog
-important: false
 site: blog
+permalink: /blog/
 ---
 
 {% include rss.html %}

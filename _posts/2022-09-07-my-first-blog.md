@@ -51,7 +51,7 @@ There are several reasons why I created a meme programming language. The main re
 * Java
 * Pascal[^3]
 
-Other reasons are just memes (e.g. having fun in CS classes). Now you can write **Polish** code, instead of English.
+Other reasons are just memes (e.g. having fun in CS classes). Now you can write **Polish** code, instead of En*lish (🤮).
 
 ---
 
