@@ -63,10 +63,8 @@ toAnimateElements.forEach(e => {
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
-        rect.top >= 30 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.bottom - element.offsetHeight*0.5 <= (window.innerHeight || document.documentElement.clientHeight)  &&
+        rect.top - element.offsetHeight*0.5 >= 0
     );
 }
 

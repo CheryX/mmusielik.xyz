@@ -185,3 +185,10 @@ h3 {
 .item > summary {
   font-size: 0.7em;
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  background-color: #607abc30;
+}
