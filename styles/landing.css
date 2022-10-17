@@ -91,10 +91,9 @@ h3 {
 }
 
 #quick {
-  height: 100vh;
 
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 auto 250px auto;
   padding: 0 2em;
 
   display: flex;
@@ -179,11 +178,25 @@ h3 {
 }
 
 .item > h1 {
-  font-size: 1.3em;
+  font-size: 2.3rem;
 }
 
 .item > summary {
-  font-size: 0.7em;
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 800px) {
+  .item > h1 {
+    font-size: 2rem;
+  }
+  
+  .item > summary {
+    font-size: 1rem;
+  }
+
+  .item {
+    min-height: 4em;
+  }
 }
 
 footer {
