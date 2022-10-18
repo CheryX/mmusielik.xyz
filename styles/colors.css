@@ -96,11 +96,11 @@ body {
 
 @media screen and (max-width: 1000px) {
   .title {
-    font-size: 50px;
+    font-size: 45px;
   }
 
   .subtitle {
-    font-size: 30px;
+    font-size: 25px;
   }
 }
 
