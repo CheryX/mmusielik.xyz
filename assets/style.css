@@ -258,3 +258,26 @@ input {
     background-color: #161d25;
     color: white;
 }
+
+video, img {
+    margin: 40px auto;
+    display: block;
+}
+
+.article > p > img {
+    max-width: 50%;
+}
+
+.article blockquote {
+    background-color: #00000020;
+    padding: 1rem 4rem 1rem 2rem;
+    border-left: var(--active) solid 4px;
+}
+
+p > code,
+li > code,
+dd > code,
+td > code {
+    background-color: #1e293b;
+    padding: 0rem .5rem;
+}
