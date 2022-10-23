@@ -42,7 +42,7 @@ Now we are going to create an application on [discord.dev](https://discord.dev):
 
 In the **Rich Presence > Art Assets** tab, upload your assets, then approve changes.
 
-> Note: After refreshing the assets will look like they're gone, **it is a discord bug**. After 3-5 minutes the assets will work. Until that happens, you can prepare the code. 
+> Note: You need to wait 3-5 minutes for assets to cache. Until that happens, you can prepare the code. 
 
 ![](/assets/rpc3.png)
 
@@ -50,9 +50,9 @@ At last, copy your application ID that is seen in the **General Information** ta
 
 ### Doing JavaScript
 
-I won't attempt to make my own RPC framework just to troll some people online, so I will use an npm package [discord-rich-presence 0.0.8](https://www.npmjs.com/package/discord-rich-presence).
+I won't attempt to make my own RPC framework just to troll some people online, so I will use a npm package [discord-rich-presence 0.0.8](https://www.npmjs.com/package/discord-rich-presence).
 
-Create a new Node.js project and install the package **discord-rich-presence** using `npm i discord-rich-presence`. Inside the `index.js` file we are going to create 2 const arrays: one with the text, one with the asset names. 
+Create a new Node.js project and install the package **discord-rich-presence** using `npm i discord-rich-presence`. Inside the `index.js` file we are going to create 2 const arrays: one with the text, one with the assets' names. 
 
 ```js
 //PS: Try to keep the amount of lines even
@@ -116,4 +116,4 @@ async function main() {
 main()
 ```
 
-Congratulations! You can now run the code by `node .` while running discord, and troll your friends
+Congratulations! You can now run the code using `node .` while running discord, and troll your friends
