@@ -15,7 +15,7 @@ Ever wanted to *troll* your friends with a fake activity on discord, but a class
 
 <!-- Just realized i never added any video on a site -->
 <video width="400" controls>
-  <source src="/assets/rpc.mp4" type="video/mp4">
+  <source src="/assets/blog/rpc.mp4" type="video/mp4">
   Your browser does not support HTML video.
 </video>
 
@@ -38,13 +38,13 @@ Try downloading some .jpgs from the internet, or you can create your own! For th
 
 Now we are going to create an application on [discord.dev](https://discord.dev):
 
-![](/assets/rpc2.png)
+![](/assets/blog/rpc2.png)
 
 In the **Rich Presence > Art Assets** tab, upload your assets, then approve changes.
 
 > Note: You need to wait 3-5 minutes for assets to cache. Until that happens, you can prepare the code. 
 
-![](/assets/rpc3.png)
+![](/assets/blog/rpc3.png)
 
 At last, copy your application ID that is seen in the **General Information** tab (This is not private information, you can share it)
 
