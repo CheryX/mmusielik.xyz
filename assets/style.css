@@ -268,6 +268,10 @@ video, img {
     max-width: 50%;
 }
 
+.article video {
+    max-width: 70%;
+}
+
 .article blockquote {
     background-color: #00000020;
     padding: 1rem 4rem 1rem 2rem;
