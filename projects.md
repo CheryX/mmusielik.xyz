@@ -7,13 +7,14 @@ permalink: /projects/
 
 # Projects
 
-{% include stuff.html %}
+{% include projects.html %}
 
 ## On this page
 
 - [Kochanowski (0.3.0) to JavaScript](/projects/kochanowski)
 - [Kochanowski (0.0.1c) to C++](/projects/cpp)
 - [cherry-box Web version](/projects/cherrybox)
+- [Trolley Problems](http://trolley.mmusielik.xyz/) ssl broke :(
 
 ## Other
 
