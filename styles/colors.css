@@ -12,14 +12,14 @@
 
   color: white;
   background: radial-gradient(
-        41.41% 14.67% at 111.54% 68.77%,
-        rgba(219, 0, 255, 0.1) 0%,
-        rgba(219, 0, 255, 0) 100%
+      41.41% 14.67% at 111.54% 68.77%,
+      rgba(219, 0, 255, 0.1) 0%,
+      rgba(219, 0, 255, 0) 100%
     ),
     radial-gradient(
-        49.25% 17.81% at -14.15% 100.72%,
-        rgba(0, 71, 255, 0.1) 0%,
-        rgba(36, 0, 255, 0.028) 40.98%
+      49.25% 17.81% at -14.15% 100.72%,
+      rgba(0, 71, 255, 0.1) 0%,
+      rgba(36, 0, 255, 0.028) 40.98%
     ),
     radial-gradient(
       62.68% 22.29% at -37.19% 56.96%,
@@ -46,35 +46,15 @@
       rgba(134, 2, 255, 0.1) 86.35%
     ),
     #000000;
-    background-repeat: no-repeat;
-    background-size: 100vw auto;
+  background-repeat: no-repeat;
+  background-size: 100vw auto;
 }
 
-html,
-body {
-  font-family: "JetBrains Mono", monospace;
-}
-
-* {
-  font-family: "JetBrains Mono", monospace;
-}
-
-body {
-  font: "JetBrains Mono";
-}
-
+/* -----------[ ANIMATIONS ]----------- */
 @keyframes cheryxtext {
   to {
     background-position: 200% center;
   }
-}
-
-.cheryx {
-  background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: cheryxtext 5s linear infinite;
 }
 
 @keyframes glowing {
@@ -102,6 +82,50 @@ body {
     text-shadow: 0px 4px 11px rgba(204, 0, 255, 0.3),
       4px -4px 11px rgba(0, 110, 255, 0.356);
   }
+}
+
+@keyframes wobble {
+  0% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes glowingHigh {
+  0% {
+    box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
+      0px -4px 50px rgba(0, 110, 255, 0.1);
+  }
+  20% {
+    box-shadow: -4px -4px 50px rgba(204, 0, 255, 0.1),
+      4px 4px 50px rgba(0, 110, 255, 0.1);
+  }
+  40% {
+    box-shadow: 4px 0px 50px rgba(204, 0, 255, 0.1),
+      0px -4px 50px rgba(0, 110, 255, 0.1);
+  }
+  60% {
+    box-shadow: -4px 4px 50px rgba(204, 0, 255, 0.1),
+      -4px 4px 50px rgba(0, 110, 255, 0.1);
+  }
+  80% {
+    box-shadow: 0px -4px 50px rgba(204, 0, 255, 0.1),
+      0px 4px 50px rgba(0, 110, 255, 0.1);
+  }
+  100% {
+    box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
+      4px -4px 50px rgba(0, 110, 255, 0.1);
+  }
+}
+
+.cheryx {
+  background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+  animation: cheryxtext 5s linear infinite;
 }
 
 .text-anim {
@@ -176,65 +200,11 @@ body {
 .nav-active {
   color: white;
   background: linear-gradient(180deg, #96cdff 0%, #e993ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   animation: glowing linear 5s infinite;
 }
 
 #socials > a > div:hover {
   filter: brightness(0.8);
-}
-
-@keyframes wobble {
-  0% {
-    transform: translateY(-15px);
-  }
-  50% {
-    transform: translateY(15px);
-  }
-  100% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes glowingHigh {
-  0% {
-    box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
-      0px -4px 50px rgba(0, 110, 255, 0.1);
-  }
-  20% {
-    box-shadow: -4px -4px 50px rgba(204, 0, 255, 0.1),
-      4px 4px 50px rgba(0, 110, 255, 0.1);
-  }
-  40% {
-    box-shadow: 4px 0px 50px rgba(204, 0, 255, 0.1),
-      0px -4px 50px rgba(0, 110, 255, 0.1);
-  }
-  60% {
-    box-shadow: -4px 4px 50px rgba(204, 0, 255, 0.1),
-      -4px 4px 50px rgba(0, 110, 255, 0.1);
-  }
-  80% {
-    box-shadow: 0px -4px 50px rgba(204, 0, 255, 0.1),
-      0px 4px 50px rgba(0, 110, 255, 0.1);
-  }
-  100% {
-    box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
-      4px -4px 50px rgba(0, 110, 255, 0.1);
-  }
-}
-
-@keyframes distortion {
-  0% {
-    transform: translateX(-15px);
-  }
-  50% {
-    transform: translateX(15px);
-  }
-  100% {
-    transform: translateX(-15px);
-  }
 }
 
 .life > img {
@@ -258,4 +228,40 @@ body {
 
 .show-on-scroll {
   transition-duration: 1s !important;
+}
+
+.text-bg,
+.cheryx,
+.nav-item:hover,
+.nav-active {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.item {
+  color: white;
+  transition: 200ms;
+  cursor: pointer;
+}
+
+.projects > a {
+  text-decoration: none;
+}
+
+.item:hover {
+  transform: scale(1.01);
+  color: #e7d3ff;
+}
+
+.item > h1 {
+  font-size: 2.3rem;
+}
+
+.item > summary {
+  font-size: 1.3rem;
+}
+
+footer {
+  background-color: #607abc30;
 }
