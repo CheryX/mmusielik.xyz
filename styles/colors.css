@@ -250,7 +250,8 @@
 }
 
 .item:hover {
-  transform: scale(1.01);
+  scale: 1.03;
+  transition-duration: scale 0.5s;
   color: #e7d3ff;
 }
 
