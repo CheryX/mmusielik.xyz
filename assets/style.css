@@ -200,7 +200,7 @@ footer {
 #compile {
     text-align: center;
     margin: 1rem;
-    padding: 1.25rem 2rem;
+    padding: 1rem 2rem;
     margin: 0.5rem 0.25rem;
     color: white;
     display: inline-block;
@@ -284,4 +284,34 @@ dd > code,
 td > code {
     background-color: #1e293b;
     padding: 0rem .5rem;
+}
+
+.small-btn {
+    width: 50px;
+}
+
+.submit-btn {
+    text-align: center;
+    padding: 1rem 2rem;
+    margin: 0.5rem 0.25rem;
+    margin-left: auto;
+    color: white;
+    display: inline-block;
+    background-color: var(--active);
+    border: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12pt;
+    cursor: pointer;
+}
+
+table {
+    margin: 2rem 0;
+    width: 100%;
+    border-collapse: collapse;
+    border: var(--active) 1px solid;
+}
+
+table, td, th {
+    border: 1px solid;
+    padding: .5rem;
 }

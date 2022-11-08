@@ -1,0 +1,96 @@
+---
+layout: default
+title: Kalkulator adresów IP
+site: projects
+permalink: /projects/ip/
+---
+
+<h1>Kalkulator Adresów IP</h1>
+
+<input id="ip" value="192.168.0.24">
+<input id="mask" class="small-btn white-input" value="24" type="number" min="1" max="31">
+
+<br>
+
+<button type="submit" class="submit-btn" onclick="submit()">Sprawdź</button>
+
+<table>
+    <tr>
+        <td>Nazwa</td>
+        <td>Wartość</td>
+        <td>Wartość w binarnym</td>
+    </tr>
+    <tr>
+        <td>Adres IP</td>
+        <td id="a1"></td>
+        <td id="b1"></td>
+    </tr>
+    <tr>
+        <td>Adres maski</td>
+        <td id="a2"></td>
+        <td id="b2"></td>
+    </tr>
+    <tr>
+        <td>Adres sieci</td>
+        <td id="a3"></td>
+        <td id="b3"></td>
+    </tr>
+    <tr>
+        <td>Adres hosta</td>
+        <td id="a4"></td>
+        <td id="b4"></td>
+    </tr>
+</table>
+
+<script>
+
+function ipToInt(ip) {
+    var parts = ip.split(".");
+    var res = 0;
+
+    res += parseInt(parts[0], 10) << 24;
+    res += parseInt(parts[1], 10) << 16;
+    res += parseInt(parts[2], 10) << 8;
+    res += parseInt(parts[3], 10);
+
+    return res;
+}
+
+function intToIP(int) {
+    var part1 = int & 255;
+    var part2 = ((int >> 8) & 255);
+    var part3 = ((int >> 16) & 255);
+    var part4 = ((int >> 24) & 255);
+
+    return part4 + "." + part3 + "." + part2 + "." + part1;
+}
+
+function submit() {
+
+    
+    const rawIP = document.getElementById("ip").value
+    const rawMask = document.getElementById("mask").value
+    if (parseInt(rawMask) > 32 || parseInt(rawMask) < 0) {
+        alert("Wpisz poprawną maskę");
+        return 0;
+    }
+
+    const IP = ipToInt(rawIP)
+    const mask = 2**parseInt(rawMask)-1 << 32-parseInt(rawMask);
+
+    const netw = IP & mask;
+    const host = IP & ~mask;
+
+    document.getElementById("a1").innerText = `${intToIP(IP)}/${rawMask}`
+    document.getElementById("a2").innerText = intToIP(mask)
+    document.getElementById("a3").innerText = intToIP(netw)
+    document.getElementById("a4").innerText = intToIP(host)
+    
+    document.getElementById("b1").innerText = (IP >>> 0).toString(2).match(/.{1,8}/g).join(" ");
+    document.getElementById("b2").innerText = (mask >>> 0).toString(2).match(/.{1,8}/g).join(" ");
+    document.getElementById("b3").innerText = (netw >>> 0).toString(2).match(/.{1,8}/g).join(" ");
+    document.getElementById("b4").innerText = (host >>> 0).toString(2).match(/.{1,8}/g).join(" ");
+
+}
+
+</script>
