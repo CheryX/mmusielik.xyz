@@ -16,6 +16,7 @@ permalink: /projects/
 - [cherry-box Web version](/projects/cherrybox)
 - [Any Base Converter](/projects/base)
 - [IP Calculator (pl)](/projects/ip)
+- [Trolley Problems](http://trolley.mmusielik.xyz/)
 - [PMG (Personal Meme Generator)](/projects/pmg)
 
 ## Other
