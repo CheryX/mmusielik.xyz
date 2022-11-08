@@ -15,6 +15,7 @@ permalink: /projects/
 - [Kochanowski (0.3.0c) to C++](/projects/cpp)
 - [cherry-box Web version](/projects/cherrybox)
 - [Any Base Converter](/projects/base)
+- [IP Calculator (pl)](/projects/ip)
 - [PMG (Personal Meme Generator)](/projects/pmg)
 
 ## Other
