@@ -40,6 +40,16 @@ permalink: /projects/ip/
         <td id="a4"></td>
         <td id="b4"></td>
     </tr>
+    <tr>
+        <td>Zakres hostów</td>
+        <td id="a5"></td>
+        <td id="b5"></td>
+    </tr>
+    <tr>
+        <td>Adres rozgłoszeniowy</td>
+        <td id="a6"></td>
+        <td id="b6"></td>
+    </tr>
 </table>
 
 <script>
@@ -65,6 +75,14 @@ function intToIP(int) {
     return part4 + "." + part3 + "." + part2 + "." + part1;
 }
 
+function ipToBinary(IP) {
+
+    let str = (IP >>> 0).toString(2)
+    str = str.padStart(32, "0")
+    return str.match(/.{1,8}/g).join(" ");
+
+}
+
 function submit() {
 
     
@@ -80,16 +98,20 @@ function submit() {
 
     const netw = IP & mask;
     const host = IP & ~mask;
+    const broadcast = IP | ~mask;
 
     document.getElementById("a1").innerText = `${intToIP(IP)}/${rawMask}`
     document.getElementById("a2").innerText = intToIP(mask)
     document.getElementById("a3").innerText = intToIP(netw)
     document.getElementById("a4").innerText = intToIP(host)
+    document.getElementById("a5").innerText = `${intToIP(netw+1)}/${intToIP(broadcast-1)}`
+    document.getElementById("a6").innerText = intToIP(broadcast)
     
-    document.getElementById("b1").innerText = (IP >>> 0).toString(2).match(/.{1,8}/g).join(" ");
-    document.getElementById("b2").innerText = (mask >>> 0).toString(2).match(/.{1,8}/g).join(" ");
-    document.getElementById("b3").innerText = (netw >>> 0).toString(2).match(/.{1,8}/g).join(" ");
-    document.getElementById("b4").innerText = (host >>> 0).toString(2).match(/.{1,8}/g).join(" ");
+    document.getElementById("b1").innerText = ipToBinary(IP)
+    document.getElementById("b2").innerText = ipToBinary(mask)
+    document.getElementById("b3").innerText = ipToBinary(netw)
+    document.getElementById("b4").innerText = ipToBinary(host)
+    document.getElementById("b6").innerText = ipToBinary(broadcast)
 
 }
 
