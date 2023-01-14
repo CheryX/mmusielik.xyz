@@ -4,6 +4,8 @@ important: false
 site: home
 ---
 
+{% include ad.html %}
+
 # Welcome!
 
 Hello! My name is Maciej, but I am more known by my nickname "CheryX". I am a student and I like to code.
