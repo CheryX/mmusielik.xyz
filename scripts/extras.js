@@ -3,10 +3,13 @@ const alertBg = document.getElementById("alertBg");
 
 async function customAlert(message) {
 
+    const wordsPerMinute = 200;
+    const wordsLength = message.split(' ').length
+
     alertText.innerText = message;
     alertBg.style.opacity = 1.0;
 
-    await delay(message.length * 100 + 2000);
+    await delay(wordsLength*wordsPerMinute + 1000);
 
     alertBg.style.opacity = 0.0;
 
@@ -54,10 +57,10 @@ async function doMagicStuff() {
     await customAlert("nice")
 }
 
-const toAnimateElements = document.querySelectorAll('.show-on-scroll');
+const toAnimateElements = document.querySelectorAll('.s');
 toAnimateElements.forEach(e => {
-    e.style.opacity = !isInViewport(e) ? '0' : '1';
-    e.style.transform = !isInViewport(e) ? 'translateY(20px)' : 'translateY(0px)';
+    e.classList.add(!isInViewport(e) ? 's-off' : 's-on')
+    e.classList.remove(isInViewport(e) ? 's-off' : 's-on')
 });
 
 function isInViewport(element) {
@@ -70,8 +73,8 @@ function isInViewport(element) {
 
 document.addEventListener('scroll', (n => {
     toAnimateElements.forEach(e => {
-        e.style.opacity = !isInViewport(e) ? '0' : '1';
-        e.style.transform = !isInViewport(e) ? 'translateY(20px)' : 'translateY(0px)';
+        e.classList.add(!isInViewport(e) ? 's-off' : 's-on')
+        e.classList.remove(isInViewport(e) ? 's-off' : 's-on')
     });
 }))
 

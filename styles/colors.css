@@ -226,8 +226,18 @@
   border-radius: 10px;
 }
 
-.show-on-scroll {
-  transition-duration: 1s !important;
+.s {
+  transition-duration: 0.8s !important;
+}
+
+.s-on {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.s-off {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .text-bg,
@@ -243,6 +253,10 @@
   color: white;
   transition: 200ms;
   cursor: pointer;
+}
+
+.dis {
+  cursor: not-allowed !important;
 }
 
 .projects > a {

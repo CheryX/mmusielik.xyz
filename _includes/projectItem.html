@@ -1,10 +1,10 @@
 {% if include.disabled == "true" %}
-<a onclick="customAlert('This project had been abandoned OR it\'s code is private')">
+<a onclick="customAlert('This project had been abandoned or it\'s code is private')">
+    <div class="item s dis" disabled>
 {% else %}
 <a href={{ include.link }} target="_blank">
+    <div class="item s">
 {% endif %}
-
-    <div class="item show-on-scroll">
         <h1>{{ include.title }}</h1>
         <summary>{{ include.content }}</summary>
     </div>
