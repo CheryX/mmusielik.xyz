@@ -50,6 +50,24 @@
   background-size: 100vw auto;
 }
 
+
+.text a {
+  background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+  animation: cheryxtext 5s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: underline;
+  padding: .1em 0;
+}
+
+.text a:hover {
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  -webkit-text-fill-color: white;
+  color: white;
+}
+
 /* -----------[ ANIMATIONS ]----------- */
 @keyframes cheryxtext {
   to {

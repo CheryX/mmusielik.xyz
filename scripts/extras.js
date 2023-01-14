@@ -67,7 +67,7 @@ function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
         rect.bottom - element.offsetHeight*0.5 <= (window.innerHeight || document.documentElement.clientHeight)  &&
-        rect.top - element.offsetHeight*0.5 >= 0
+        rect.top - element.offsetHeight*-0.5 >= 0
     );
 }
 

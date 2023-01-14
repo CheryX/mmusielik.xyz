@@ -76,7 +76,7 @@ h3 {
 
 #quick {
   max-width: 1280px;
-  margin: 0 auto 250px auto;
+  margin: 0 auto 150px auto;
   padding: 0 2em;
 
   display: flex;
@@ -132,9 +132,41 @@ footer {
   padding: 1rem;
 }
 
+#aboutme {
+  max-width: 1280px;
+  margin: 0 auto 250px auto;
+  padding: 0 2em;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#aboutme > .title {
+  margin: 0 3rem;
+  text-align: right;
+}
+
+#aboutme p {
+  font-size: 18pt;
+  font-weight: 500;
+}
+
+#aboutme > div {
+  border-left: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(0deg, #00b3ff73 0%, #9000ff65 100%);
+  padding: 0 3rem;
+}
+
 @media screen and (max-width: 1500px) {
   .life {
     display: none;
+  }
+
+  #aboutme {
+    flex-direction: column;
   }
 }
 
