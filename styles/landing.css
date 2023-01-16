@@ -168,6 +168,11 @@ footer {
   #aboutme {
     flex-direction: column;
   }
+
+  #aboutme p {
+    font-size: 12pt;
+    font-weight: 500;
+  }
 }
 
 @media screen and (max-width: 1200px) {
