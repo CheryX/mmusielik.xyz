@@ -1,0 +1,31 @@
+---
+
+const { title, description, href } = Astro.props
+
+---
+
+<a href={href} target="_blank">
+    <div class="s item min-h-[8em] flex flex-col justify-center px-2 py-1 text-white cursor-pointer text-center rounded-2xl">
+        <h1 class="text-4xl font-bold">{title}</h1>
+        <summary class="list-none">{description}</summary>
+    </div>
+</a>
+
+<style>
+
+  .item {
+    background-color: #607abc30;
+    font-size: 30px;
+    transition: scale 200ms linear, color 200ms linear, opacity 0.8s linear, transform 0.8s linear;
+  }
+
+  .item:hover {
+    scale: 1.03;
+    color: #f0e3ff;
+  }
+
+  .item > summary {
+    font-size: 1.3rem;
+  }
+
+</style>

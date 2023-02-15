@@ -2,22 +2,23 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Layout from '../layouts/Layout.astro';
+import ProjectItem from '../components/ProjectItem.astro';
 ---
 
 <Layout title="CheryX's Website">
 
 	<Header selected={0}/>
 
-	<main class="h-[500vh]">
+	<main class="h-[500vh] text-white">
 
-		<section id="landing" class="text-white w-100 h-screen max-w-7xl mx-auto py-12 flex justify-center">
+		<section id="landing" class="w-100 h-screen max-w-7xl px-8 lg:mx-auto py-12 flex justify-center">
 
 
 			<div class="w-full flex justify-center flex-col">
 				
 				<div class="center">
-					<h1 class="my-5 font-black text-7xl s">Hi! I'm <span class="highlight">CheryX</span></h1>
-					<h2 class="m-0 font-semibold text-3xl s">
+					<h1 class="my-3 lg:my-5 font-black text-4xl md:text-6xl lg:text-7xl s">Hi! I'm <span class="highlight">CheryX</span></h1>
+					<h2 class="m-0 font-semibold text-2xl lg:text-3xl s">
 						<span data-order="3" class="tp">I am </span>
 						<span data-order="4" class="tp tp-or tp-loop highlight">a programmer|a student|bored|an arch user (btw)</span>
 					</h2>
@@ -29,10 +30,25 @@ import Layout from '../layouts/Layout.astro';
 
 			</div>
 
-			<div class="w-full flex justify-center flex-col items-center animate-wobble">
+			<div class="hidden w-full lg:flex justify-center flex-col items-center">
 				
 				<img class="rounded-full logo w-2/3" src="/cheryx.png" alt="CheryX">
 
+			</div>
+
+		</section>
+
+		<section id="quick" class="w-100 h-screen max-w-7xl px-8 lg:mx-auto">
+
+			<h1 class="my-5 font-black text-4xl md:text-6xl lg:text-7xl text-right">Featured <span class="highlight">Projects</span></h1>
+
+			<div class="projects mt-12 grid lg:grid-cols-3 gap-5">
+				<ProjectItem title="KPL" description="Kochanowski Programming Language" href="https://example.com/" />
+				<ProjectItem title="cherry-box" description="Align text in node-canvas" href="https://example.com/" />
+				<ProjectItem title="Speros" description="Speedruning matura exam" href="https://example.com/" />
+				<ProjectItem title="dead" description="ipsum donor sit amet" href="https://example.com/" />
+				<ProjectItem title="dead" description="ipsum donor sit amet" href="https://example.com/" />
+				<ProjectItem title="dead" description="ipsum donor sit amet" href="https://example.com/" />
 			</div>
 
 		</section>
@@ -44,7 +60,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
 	.scrollDown {
-		@apply mx-4 my-6 w-fit p-2 aspect-square text-center text-6xl bg-[#607abc30] rounded-md cursor-pointer;
+		@apply mx-4 my-6 w-fit p-1 md:p-2 aspect-square text-center text-6xl bg-[#607abc30] rounded-md cursor-pointer ml-auto md:ml-4;
 		box-shadow: 0px 0px 48px -13px rgba(255, 255, 255, 0.123);
 		transition-duration: 0.4s;
 	}
@@ -88,6 +104,6 @@ import Layout from '../layouts/Layout.astro';
 	}
 
 	.logo {
-		animation: wobble ease-in-out 7s infinite, glowingHigh linear 4s infinite;
+		animation: wobbleKey ease-in-out 7s infinite, glowingHigh linear 4s infinite;
 	}
 </style>

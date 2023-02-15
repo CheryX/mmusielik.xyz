@@ -7,27 +7,27 @@ const { selected } = Astro.props;
     
     <div class="flex justify-center">
         <a href="" class={`nav-link ${selected === 0 && "nav-active"}`}>
-            <div>Home</div>
+            <div class="hidden lg:block">Home</div><div class="block lg:hidden"><span class="material-symbols-outlined">home</span></div>
         </a>
     
         <a href="" class={`nav-link ${selected === 1 && "nav-active"}`}>
-            <div>Blog</div>
+            <div class="hidden lg:block">Blog</div><div class="block lg:hidden"><span class="material-symbols-outlined">rss_feed</span></div>
         </a>
     
         <a href="" class={`nav-link ${selected === 2 && "nav-active"}`}>
-            <div>Projects</div>
+            <div class="hidden lg:block">Projects</div><div class="block lg:hidden"><span class="material-symbols-outlined">terminal</span></div>
         </a>
     
         <a href="" class={`nav-link ${selected === 3 && "nav-active"}`}>
-            <div>Contact</div>
+            <div class="hidden lg:block">Contact</div><div class="block lg:hidden"><span class="material-symbols-outlined">contact_page</span></div>
         </a>
     
         <a href="" class={`nav-link ${selected === 4 && "nav-active"}`}>
-            <div>Soon</div>
+            <div class="hidden lg:block">Soon</div><div class="block lg:hidden"><span class="material-symbols-outlined">help</span></div>
         </a>
     </div>
 
-    <div class="socials absolute right-8 flex text-white h-20">
+    <div class="socials absolute right-8 hidden lg:flex text-white h-20">
 
         <a href="">
             <i class="fa-brands fa-github"></i>
@@ -52,5 +52,9 @@ const { selected } = Astro.props;
 
     .nav-active {
         @apply bg-clip-text text-transparent bg-gradient-to-b from-[#96cdff] to-[#e993ff] animate-glow;
+    }
+
+    .nav-link span {
+        vertical-align: bottom;
     }
 </style>
