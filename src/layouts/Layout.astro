@@ -1,0 +1,64 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+		<script src="/typewriter.js" defer></script>
+		<script src="/extras.js" defer></script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+	
+	html {
+		font-family: 'JetBrains Mono', monospace;
+
+		/* This background was made in Figma */
+		background: 
+			radial-gradient(41.41% 14.67% at 111.54% 68.77%, rgba(219, 0, 255, 0.1) 0%, rgba(219, 0, 255, 0) 100%),
+			radial-gradient(49.25% 17.81% at -14.15% 100.72%, rgba(0, 71, 255, 0.1) 0%, rgba(36, 0, 255, 0.028) 40.98%),
+			radial-gradient(62.68% 22.29% at -37.19% 56.96%, rgba(82, 255, 0, 0.1) 0%, rgba(36, 255, 0, 0) 100%), 
+			radial-gradient(46.95% 18.21% at -4.97% 1.23%, rgba(0, 26, 255, 0.1) 0%, rgba(0, 26, 255, 0) 100%), 
+			radial-gradient(49.48% 17.59% at 120.31% 25.24%, rgba(204, 0, 255, 0.1) 0%, rgba(204, 0, 255, 0) 100%), 
+			linear-gradient(98.84deg, rgba(0, 26, 255, 0.1) 0%, rgba(143, 0, 255, 0.1) 17.71%, rgba(14, 23, 255, 0.1) 35.42%, 
+			rgba(143, 0, 255, 0.1) 56.13%, rgba(27, 21, 255, 0.1) 78.12%, rgba(134, 2, 255, 0.1) 100%), black;
+
+		background-repeat: no-repeat;
+ 		background-size: 100vw auto;
+
+	}
+
+	.s {
+		transition: opacity 0.8s linear, transform 0.8s linear;
+	}
+
+	.s-on {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+
+	.s-off {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	.highlight {
+		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+		@apply bg-clip-text text-transparent animate-glow;
+	}
+</style>

@@ -1,4 +1,0 @@
----
-layout: landing
-site: home
----

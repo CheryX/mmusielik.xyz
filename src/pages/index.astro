@@ -1,0 +1,93 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CheryX's Website">
+
+	<Header selected={0}/>
+
+	<main class="h-[500vh]">
+
+		<section id="landing" class="text-white w-100 h-screen max-w-7xl mx-auto py-12 flex justify-center">
+
+
+			<div class="w-full flex justify-center flex-col">
+				
+				<div class="center">
+					<h1 class="my-5 font-black text-7xl s">Hi! I'm <span class="highlight">CheryX</span></h1>
+					<h2 class="m-0 font-semibold text-3xl s">
+						<span data-order="3" class="tp">I am </span>
+						<span data-order="4" class="tp tp-or tp-loop highlight">a programmer|a student|bored|an arch user (btw)</span>
+					</h2>
+				</div>
+
+				<div class="s scrollDown" onclick="window.scrollBy(0, window.innerHeight/2)">
+					<span>▼</span>
+				</div>
+
+			</div>
+
+			<div class="w-full flex justify-center flex-col items-center animate-wobble">
+				
+				<img class="rounded-full logo w-2/3" src="/cheryx.png" alt="CheryX">
+
+			</div>
+
+		</section>
+
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.scrollDown {
+		@apply mx-4 my-6 w-fit p-2 aspect-square text-center text-6xl bg-[#607abc30] rounded-md cursor-pointer;
+		box-shadow: 0px 0px 48px -13px rgba(255, 255, 255, 0.123);
+		transition-duration: 0.4s;
+	}
+
+	#scrollDown:hover {
+		background: #6083dd30;
+		box-shadow: 0px 0px 48px -13px rgba(255, 255, 255, 0.123);
+		transform: translateY(5px);
+		scale: 1.05;
+	}
+
+	#scrollDown > span {
+		text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.356);
+	}
+
+	@keyframes glowingHigh {
+		0% {
+			box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
+			0px -4px 50px rgba(0, 110, 255, 0.1);
+		}
+		20% {
+			box-shadow: -4px -4px 50px rgba(204, 0, 255, 0.1),
+			4px 4px 50px rgba(0, 110, 255, 0.1);
+		}
+		40% {
+			box-shadow: 4px 0px 50px rgba(204, 0, 255, 0.1),
+			0px -4px 50px rgba(0, 110, 255, 0.1);
+		}
+		60% {
+			box-shadow: -4px 4px 50px rgba(204, 0, 255, 0.1),
+			-4px 4px 50px rgba(0, 110, 255, 0.1);
+		}
+		80% {
+			box-shadow: 0px -4px 50px rgba(204, 0, 255, 0.1),
+			0px 4px 50px rgba(0, 110, 255, 0.1);
+		}
+		100% {
+			box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
+			4px -4px 50px rgba(0, 110, 255, 0.1);
+		}
+	}
+
+	.logo {
+		animation: wobble ease-in-out 7s infinite, glowingHigh linear 4s infinite;
+	}
+</style>

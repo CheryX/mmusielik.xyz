@@ -1,0 +1,56 @@
+---
+const { selected } = Astro.props;
+---
+
+<script src="https://kit.fontawesome.com/3959075aa6.js" crossorigin="anonymous"></script>
+<header class="flex w-full justify-center align-middle h-20 absolute">
+    
+    <div class="flex justify-center">
+        <a href="" class={`nav-link ${selected === 0 && "nav-active"}`}>
+            <div>Home</div>
+        </a>
+    
+        <a href="" class={`nav-link ${selected === 1 && "nav-active"}`}>
+            <div>Blog</div>
+        </a>
+    
+        <a href="" class={`nav-link ${selected === 2 && "nav-active"}`}>
+            <div>Projects</div>
+        </a>
+    
+        <a href="" class={`nav-link ${selected === 3 && "nav-active"}`}>
+            <div>Contact</div>
+        </a>
+    
+        <a href="" class={`nav-link ${selected === 4 && "nav-active"}`}>
+            <div>Soon</div>
+        </a>
+    </div>
+
+    <div class="socials absolute right-8 flex text-white h-20">
+
+        <a href="">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="">
+            <i class="fa-brands fa-discord"></i>
+        </a>
+
+    </div>
+
+</header>
+
+<style is:global>
+    .socials > a {
+        @apply p-4 mx-1 my-auto text-2xl
+    }
+
+    .nav-link {
+        @apply text-white my-1 py-5 px-8 font-bold text-xl;
+    }
+
+    .nav-active {
+        @apply bg-clip-text text-transparent bg-gradient-to-b from-[#96cdff] to-[#e993ff] animate-glow;
+    }
+</style>
