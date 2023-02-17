@@ -63,4 +63,25 @@ const { title } = Astro.props;
 		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
 		@apply bg-clip-text text-transparent animate-glow;
 	}
+
+	.article p {
+		@apply py-2 text-xl
+	}
+
+	.article a {
+		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+		@apply bg-clip-text text-transparent relative;
+	}
+
+	.article a::after {
+		content: "";
+		position: absolute;
+		bottom: 2px;
+		left: 0;
+		height: 1px;
+		width: 100%;
+		background: #00b2ff;
+		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+	}
+	
 </style>
