@@ -29,6 +29,7 @@ const { title } = Astro.props;
 	
 	html {
 		font-family: 'JetBrains Mono', monospace;
+		min-height: 100vh;
 
 		/* This background was made in Figma */
 		background: 
@@ -41,12 +42,12 @@ const { title } = Astro.props;
 			rgba(143, 0, 255, 0.1) 56.13%, rgba(27, 21, 255, 0.1) 78.12%, rgba(134, 2, 255, 0.1) 100%), black;
 
 		background-repeat: no-repeat;
- 		background-size: 100vw auto;
+		background-size: 100vw 500vh;
 
 	}
 
 	.s {
-		transition: opacity 0.8s linear, transform 0.8s linear;
+		transition: opacity 0.8s ease-out, transform 0.8s ease-in;
 	}
 
 	.s-on {
@@ -65,7 +66,7 @@ const { title } = Astro.props;
 	}
 
 	.article p {
-		@apply py-2 text-xl
+		@apply py-2 lg:text-xl
 	}
 
 	.article a {
@@ -83,5 +84,5 @@ const { title } = Astro.props;
 		background: #00b2ff;
 		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
 	}
-	
+
 </style>

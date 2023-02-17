@@ -6,34 +6,34 @@ const { selected } = Astro.props;
 <header class="flex w-full justify-center align-middle h-20 absolute">
     
     <div class="flex justify-center">
-        <a href="" class={`nav-link ${selected === 0 && "nav-active"}`}>
+        <a href="/" class={`nav-link ${selected === 0 && "nav-active"}`}>
             <div class="hidden lg:block">Home</div><div class="block lg:hidden"><span class="material-symbols-outlined">home</span></div>
         </a>
     
-        <a href="" class={`nav-link ${selected === 1 && "nav-active"}`}>
+        <a href="/blog" class={`nav-link ${selected === 1 && "nav-active"}`}>
             <div class="hidden lg:block">Blog</div><div class="block lg:hidden"><span class="material-symbols-outlined">rss_feed</span></div>
         </a>
     
-        <a href="" class={`nav-link ${selected === 2 && "nav-active"}`}>
+        <a href="/projects" class={`nav-link ${selected === 2 && "nav-active"}`}>
             <div class="hidden lg:block">Projects</div><div class="block lg:hidden"><span class="material-symbols-outlined">terminal</span></div>
         </a>
     
-        <a href="" class={`nav-link ${selected === 3 && "nav-active"}`}>
+        <a href="/contact" class={`nav-link ${selected === 3 && "nav-active"}`}>
             <div class="hidden lg:block">Contact</div><div class="block lg:hidden"><span class="material-symbols-outlined">contact_page</span></div>
         </a>
     
-        <a href="" class={`nav-link ${selected === 4 && "nav-active"}`}>
+        <a href="/idk" class={`nav-link ${selected === 4 && "nav-active"}`}>
             <div class="hidden lg:block">Soon</div><div class="block lg:hidden"><span class="material-symbols-outlined">help</span></div>
         </a>
     </div>
 
     <div class="socials absolute right-8 hidden lg:flex text-white h-20">
 
-        <a href="">
+        <a href="https://github.com/CheryX">
             <i class="fa-brands fa-github"></i>
         </a>
 
-        <a href="">
+        <a href="https://discord.com/users/344491989691269151">
             <i class="fa-brands fa-discord"></i>
         </a>
 
