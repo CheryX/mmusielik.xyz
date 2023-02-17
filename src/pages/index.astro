@@ -1,0 +1,128 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Layout from '../layouts/Layout.astro';
+import ProjectItem from '../components/ProjectItem.astro';
+---
+
+<Layout title="CheryX's Website">
+
+	<Header selected={0}/>
+
+	<main class="h-[500vh] text-white">
+
+		<section id="landing" class="w-100 h-screen max-w-7xl px-8 lg:mx-auto py-12 flex justify-center">
+
+
+			<div class="w-full flex justify-center flex-col">
+				
+				<div class="center">
+					<h1 class="my-3 lg:my-5 font-black text-4xl md:text-6xl lg:text-7xl s">Hi! I'm <span class="highlight">CheryX</span></h1>
+					<h2 class="m-0 font-semibold text-2xl lg:text-3xl s">
+						<span data-order="3" class="tp">I am </span>
+						<span data-order="4" class="tp tp-or tp-loop highlight">a programmer|a student|bored|an arch user (btw)</span>
+					</h2>
+				</div>
+
+				<div class="s scrollDown" onclick="window.scrollBy(0, window.innerHeight/2)">
+					<span>▼</span>
+				</div>
+
+			</div>
+
+			<div class="hidden w-full lg:flex justify-center flex-col items-center">
+				
+				<img class="rounded-full logo w-2/3" src="/cheryx.png" alt="CheryX">
+
+			</div>
+
+		</section>
+
+		<section id="quick" class="w-100 mb-32 max-w-7xl px-8 lg:mx-auto">
+
+			<h1 class="my-5 font-black text-4xl md:text-6xl lg:text-7xl text-right">Featured <span class="highlight">Projects</span></h1>
+
+			<div class="projects mt-12 grid lg:grid-cols-3 gap-5">
+				<ProjectItem title="KPL" description="Kochanowski Programming Language" href="https://example.com/" />
+				<ProjectItem title="cherry-box" description="Align text in node-canvas" href="https://example.com/" />
+				<ProjectItem title="Speros" description="Speedruning matura exam" href="https://example.com/" />
+				<ProjectItem title="dead" description="ipsum donor sit amet" href="https://example.com/" />
+				<ProjectItem title="dead" description="ipsum donor sit amet" href="https://example.com/" />
+				<ProjectItem title="dead" description="ipsum donor sit amet" href="https://example.com/" />
+			</div>
+
+		</section>
+
+		<section id="aboutme" class="w-100 max-w-7xl px-8 lg:mx-auto lg:flex align-middle">
+
+			<h1 class="my-auto font-black text-4xl md:text-6xl lg:text-7xl text-center lg:text-right px-12">About me</h1>
+
+			<div class="s px-12 coolBorder article">
+				<p>Hello! My name is Maciej. I am a bored student.</p>
+				<p>I started programming in late 2019. Now I have moderate experience with Python, JavaScript, C++ and TypeScript and with multiple libraries. Recently moving to Rust. I think that we should rewrite the whole universe in Rust! 🔥</p>
+				<p>I use the Linux distibution "Arch Linux" <small>btw</small>, alongside KDE Plasma. Please stop asking me, no I <b>don't</b> watch anime</p>
+				<p>Also, you can view all my projects on <a href="https://github.com/CheryX">my GitHub</a></p>
+			</div>
+
+		</section>
+
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.coolBorder {
+		border-left: 2px solid;
+		border-image-slice: 1;
+		border-image-source: linear-gradient(0deg, #00b3ff73 0%, #9000ff65 100%);
+	}
+
+	.scrollDown {
+		@apply mx-4 my-6 w-fit p-1 md:p-2 aspect-square text-center text-6xl bg-[#607abc30] rounded-md cursor-pointer ml-auto md:ml-4;
+		box-shadow: 0px 0px 48px -13px rgba(255, 255, 255, 0.123);
+		transition-duration: 0.4s;
+	}
+
+	#scrollDown:hover {
+		background: #6083dd30;
+		box-shadow: 0px 0px 48px -13px rgba(255, 255, 255, 0.123);
+		transform: translateY(5px);
+		scale: 1.05;
+	}
+
+	#scrollDown > span {
+		text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.356);
+	}
+
+	@keyframes glowingHigh {
+		0% {
+			box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
+			0px -4px 50px rgba(0, 110, 255, 0.1);
+		}
+		20% {
+			box-shadow: -4px -4px 50px rgba(204, 0, 255, 0.1),
+			4px 4px 50px rgba(0, 110, 255, 0.1);
+		}
+		40% {
+			box-shadow: 4px 0px 50px rgba(204, 0, 255, 0.1),
+			0px -4px 50px rgba(0, 110, 255, 0.1);
+		}
+		60% {
+			box-shadow: -4px 4px 50px rgba(204, 0, 255, 0.1),
+			-4px 4px 50px rgba(0, 110, 255, 0.1);
+		}
+		80% {
+			box-shadow: 0px -4px 50px rgba(204, 0, 255, 0.1),
+			0px 4px 50px rgba(0, 110, 255, 0.1);
+		}
+		100% {
+			box-shadow: 0px 4px 50px rgba(204, 0, 255, 0.1),
+			4px -4px 50px rgba(0, 110, 255, 0.1);
+		}
+	}
+
+	.logo {
+		animation: wobbleKey ease-in-out 7s infinite, glowingHigh linear 4s infinite;
+	}
+</style>

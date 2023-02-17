@@ -1,0 +1,60 @@
+---
+const { selected } = Astro.props;
+---
+
+<script src="https://kit.fontawesome.com/3959075aa6.js" crossorigin="anonymous"></script>
+<header class="flex w-full justify-center align-middle h-20 absolute">
+    
+    <div class="flex justify-center">
+        <a href="" class={`nav-link ${selected === 0 && "nav-active"}`}>
+            <div class="hidden lg:block">Home</div><div class="block lg:hidden"><span class="material-symbols-outlined">home</span></div>
+        </a>
+    
+        <a href="" class={`nav-link ${selected === 1 && "nav-active"}`}>
+            <div class="hidden lg:block">Blog</div><div class="block lg:hidden"><span class="material-symbols-outlined">rss_feed</span></div>
+        </a>
+    
+        <a href="" class={`nav-link ${selected === 2 && "nav-active"}`}>
+            <div class="hidden lg:block">Projects</div><div class="block lg:hidden"><span class="material-symbols-outlined">terminal</span></div>
+        </a>
+    
+        <a href="" class={`nav-link ${selected === 3 && "nav-active"}`}>
+            <div class="hidden lg:block">Contact</div><div class="block lg:hidden"><span class="material-symbols-outlined">contact_page</span></div>
+        </a>
+    
+        <a href="" class={`nav-link ${selected === 4 && "nav-active"}`}>
+            <div class="hidden lg:block">Soon</div><div class="block lg:hidden"><span class="material-symbols-outlined">help</span></div>
+        </a>
+    </div>
+
+    <div class="socials absolute right-8 hidden lg:flex text-white h-20">
+
+        <a href="">
+            <i class="fa-brands fa-github"></i>
+        </a>
+
+        <a href="">
+            <i class="fa-brands fa-discord"></i>
+        </a>
+
+    </div>
+
+</header>
+
+<style is:global>
+    .socials > a {
+        @apply p-4 mx-1 my-auto text-2xl
+    }
+
+    .nav-link {
+        @apply text-white my-1 py-5 px-8 font-bold text-xl;
+    }
+
+    .nav-active {
+        @apply bg-clip-text text-transparent bg-gradient-to-b from-[#96cdff] to-[#e993ff] animate-glow;
+    }
+
+    .nav-link span {
+        vertical-align: bottom;
+    }
+</style>
