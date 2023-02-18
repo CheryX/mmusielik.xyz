@@ -1,6 +1,6 @@
 ---
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+const allPosts = await Astro.glob('../pages/blog/*.md');
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -10,20 +10,38 @@ import Layout from '../layouts/Layout.astro';
 
 	<div class="h-20"></div>
 
-	<main class="mx-auto max-w-5xl text-white my-20 article">
+	<main class="mx-auto max-w-5xl text-white my-20 ">
 
 		<h1>Blog</h1>
-		<p>nice</p>
+		
+		<p class="py-2 lg:text-lg mb-8">Ocasionally I post stupid posts & tutorials here:</p>
+
+		<ul>
+			{allPosts.map((post) => <li class="blog-post">
+				<a href={post.url}>
+					<h2>{post.frontmatter.title}</h2>
+					<em class="py-2 lg:text-lg">{post.frontmatter.description}</em>
+				</a>
+			</li>)}
+		</ul>
 
 	</main>
 
-	<Footer />
 </Layout>
 
 <style>
-	.coolBorder {
-		border-left: 2px solid;
-		border-image-slice: 1;
-		border-image-source: linear-gradient(0deg, #00b3ff73 0%, #9000ff65 100%);
+
+	main > h1 {
+		background: linear-gradient(120deg, #00b2ff 100%, #8f00ff 0%);
+		@apply bg-clip-text text-transparent text-4xl lg:text-5xl font-extrabold py-2;
+	}
+
+	.blog-post h2 {
+		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+		@apply bg-clip-text text-transparent text-3xl lg:text-4xl font-extrabold pb-2;
+	}
+
+	.blog-post {
+		@apply block px-6 border-l-[#00b3ff] border-l-4 py-2;
 	}
 </style>

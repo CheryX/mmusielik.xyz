@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
-const { title } = Astro.props;
+import Header from '../components/Header.astro';
+const { frontmatter } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -10,7 +11,7 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{frontmatter.title}</title>
 
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,600,1,0" />
 		<script src="/typewriter.js" defer></script>
@@ -18,7 +19,15 @@ const { title } = Astro.props;
 	
 	</head>
 	<body>
-		<slot />
+		<Header selected={1} />
+		
+		
+		<main class="mx-auto max-w-5xl text-white py-36 article blog">
+			<h1 class="mx-auto max-w-5xl">{frontmatter.title}</h1> 
+			<p>Published on: {frontmatter.pubDate.slice(0,10)}</p>
+
+			<slot />
+		</main>
 
 		<Footer />
 	</body>
