@@ -82,6 +82,11 @@ const { frontmatter } = Astro.props;
 		@apply bg-clip-text text-transparent relative;
 	}
 
+	.article a:hover {
+		@apply bg-clip-content text-white relative;
+		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+	}
+
 	.article a::after {
 		content: "";
 		position: absolute;
@@ -106,6 +111,17 @@ const { frontmatter } = Astro.props;
 	.blog h2::before {
 		display: inline;
 		content: "## ";
+	}
+	
+	.blog pre {
+		@apply p-8 rounded-md
+	}
+
+	.blog hr {
+		@apply my-5;
+		border-top: 2px solid;
+		border-image-slice: 1;
+		border-image-source: linear-gradient(0deg, #00b3ff73 0%, #9000ff65 100%);
 	}
 
 	.article h2 {

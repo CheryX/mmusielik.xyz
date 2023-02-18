@@ -22,7 +22,8 @@ With this setup, you can make literal slideshows using rich presence. ¯\\\_(ツ
 ## The actual tutorial
 
 Prerequisites:
-- Discord account
+
+- A discord account
 - Assets for the image, minimum 512px × 512px.
 - Lines of text filled with the content
 - Any knowledge about basic JavaScript
