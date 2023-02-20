@@ -5,13 +5,8 @@ pubDate: 2022-10-22
 description: 'How to make an animated status on discord using JavaScript.'
 ---
 
-In this tutorial I will explain how to create your own discord rich presence slideshow!
+Ever wanted to *troll* your friends with a fake activity on discord, but a classic static image won't do the trick? Good news! I was really bored and decided to do just that! Here's a preview of the result:
 
-## I did a little trolling
-
-Ever wanted to *troll* your friends with a fake activity on discord, but a classic static image won't do the trick? Good news! I was really bored and decided to do just that!
-
-<!-- Just realized i never added any video on a site -->
 <video width="400" controls>
   <source src="/assets/blog/rpc.mp4" type="video/mp4">
   Your browser does not support HTML video.
@@ -21,7 +16,7 @@ With this setup, you can make literal slideshows using rich presence. ¯\\\_(ツ
 
 ## The actual tutorial
 
-Prerequisites:
+**Prerequisites:**
 
 - A discord account
 - Assets for the image, minimum 512px × 512px.
@@ -33,25 +28,25 @@ Let's say you are a Richard Stallman enthusiast and you really want to tell peop
 
 ### Preparing the assets
 
-Try downloading some .jpgs from the internet, or you can create your own! For the purpose of the tutorial I drew 2 nerd faces using Krita (they will be shown later).
+Try downloading some .jpgs from the internet, but you can create your own! For the purpose of the tutorial I drew 2 nerd faces using Krita (they will be shown later).
 
-Now we are going to create an application on [discord.dev](https://discord.dev):
+Next create an application on the [Discord Developer Portal](https://discord.dev):
 
-![](/assets/blog/rpc2.png)
+![Creating an application named "Arch GNU/Linux" on the Discord Developer Portal](/assets/blog/rpc2.png)
 
 In the **Rich Presence > Art Assets** tab, upload your assets, then approve changes.
 
-> Note: You need to wait 3-5 minutes for assets to cache. Until that happens, you can prepare the code. 
+> Note: You have to wait 3-5 minutes for assets to cache. Until that happens, you can prepare the code.
 
-![](/assets/blog/rpc3.png)
+![Uploading 2 asstes "nerd" and "nerd2"](/assets/blog/rpc3.png)
 
 At last, copy your application ID that is seen in the **General Information** tab (This is not private information, you can share it)
 
 ### Doing JavaScript
 
-I won't attempt to make my own RPC framework just to troll some people online, so I will use a npm package [discord-rich-presence 0.0.8](https://www.npmjs.com/package/discord-rich-presence).
+I won't attempt to make my own RPC framework just to troll some people online, so I will use an npm package [discord-rich-presence 0.0.8](https://www.npmjs.com/package/discord-rich-presence).
 
-Create a new Node.js project and install the package **discord-rich-presence** using `npm i discord-rich-presence`. Inside the `index.js` file we are going to create 2 const arrays: one with the text, one with the assets' names. 
+Create a new Node.js project and install the package **discord-rich-presence** using `npm i discord-rich-presence`. Inside the `index.js` file we are going to create 2 constant arrays: one with the text, one with the assets' names.
 
 ```js
 //PS: Try to keep the amount of lines even
@@ -115,4 +110,4 @@ async function main() {
 main()
 ```
 
-Congratulations! You can now run the code using `node .` while running discord, and troll your friends
+You can now run the code using `node .` while running discord, and troll your friends. Have fun!

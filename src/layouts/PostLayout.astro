@@ -24,7 +24,10 @@ const { frontmatter } = Astro.props;
 		
 		<main class="mx-auto max-w-5xl text-white py-36 article blog">
 			<h1 class="mx-auto max-w-5xl">{frontmatter.title}</h1> 
-			<p>Published on: {frontmatter.pubDate.slice(0,10)}</p>
+			<div class="flex items-center mb-8">
+				<span class="material-symbols-outlined pr-2">calendar_month</span> 
+				Published on {frontmatter.pubDate.slice(0,10)}
+			</div>
 
 			<slot />
 		</main>
@@ -69,7 +72,7 @@ const { frontmatter } = Astro.props;
 	}
 
 	.highlight {
-		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+		background: linear-gradient(120deg, #00b2ff 0%, #b95dff 100%);
 		@apply bg-clip-text text-transparent animate-glow;
 	}
 
@@ -78,13 +81,13 @@ const { frontmatter } = Astro.props;
 	}
 
 	.article a {
-		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+		background: linear-gradient(120deg, #00b2ff 0%, #b95dff 100%);
 		@apply bg-clip-text text-transparent relative;
 	}
 
 	.article a:hover {
 		@apply bg-clip-content text-white relative;
-		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+		background: linear-gradient(120deg, #00b2ff 0%, #b95dff 100%);
 	}
 
 	.article a::after {
@@ -95,7 +98,7 @@ const { frontmatter } = Astro.props;
 		height: 1px;
 		width: 100%;
 		background: #00b2ff;
-		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
+		background: linear-gradient(120deg, #00b2ff 0%, #b95dff 100%);
 	}
 
 	.article h1 {
@@ -104,7 +107,7 @@ const { frontmatter } = Astro.props;
 	}
 	
 	.blog pre {
-		@apply p-8 rounded-md
+		@apply p-8 rounded-md my-5
 	}
 
 	.blog hr {
@@ -119,8 +122,25 @@ const { frontmatter } = Astro.props;
 		@apply bg-clip-text text-transparent text-3xl lg:text-4xl font-extrabold py-2;
 	}
 
+	.article h3 {
+		@apply text-xl lg:text-2xl font-extrabold py-2;
+	}
+
+
 	.blog img, .blog video {
 		@apply mx-auto py-5
+	}
+
+	.blog ul {
+		@apply my-5 ml-5 lg:text-lg list-inside list-disc
+	}
+
+	.blog p > code {
+		@apply p-2 bg-slate-900/50 text-orange-500 rounded-sm whitespace-nowrap
+	}
+
+	.blog blockquote {
+		@apply block px-6 border-l-[#00b3ff] border-l-4 py-4 my-4 bg-slate-500/20;
 	}
 
 </style>
