@@ -1,0 +1,11 @@
+---
+const { post } = Astro.props;
+---
+
+<a href={post.url}>
+    <div class="bg-teal-500 m-2 p-5 lg:min-h-[15rem] rounded-md flex justify-center items-center">
+        <h1 class="text-center text-3xl font-bold">{post.frontmatter.title}</h1>
+    </div>
+</a>
+
+<!-- TODO Change the bg -->
