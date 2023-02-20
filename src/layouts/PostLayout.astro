@@ -102,16 +102,6 @@ const { frontmatter } = Astro.props;
 		background: linear-gradient(120deg, #00b2ff 100%, #8f00ff 0%);
 		@apply bg-clip-text text-transparent text-4xl lg:text-5xl font-extrabold py-2;
 	}
-
-	.blog h1::before {
-		display: inline;
-		content: "# ";
-	}
-
-	.blog h2::before {
-		display: inline;
-		content: "## ";
-	}
 	
 	.blog pre {
 		@apply p-8 rounded-md
@@ -127,6 +117,10 @@ const { frontmatter } = Astro.props;
 	.article h2 {
 		background: linear-gradient(120deg, #00b2ff 0%, #8f00ff 100%);
 		@apply bg-clip-text text-transparent text-3xl lg:text-4xl font-extrabold py-2;
+	}
+
+	.blog img, .blog video {
+		@apply mx-auto py-5
 	}
 
 </style>

@@ -2,7 +2,7 @@ import rss, { pagesGlobToRssItems } from '@astrojs/rss';
 
 export async function get() {
   return rss({
-    title: 'Maciej Musielik | BLog',
+    title: 'Maciej Musielik | Blog',
     description: 'Posting stupid stuff',
     site: 'https://mmusielik.xyz',
     items: await pagesGlobToRssItems(import.meta.glob('./**/*.md')),
