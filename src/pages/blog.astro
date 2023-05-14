@@ -4,6 +4,10 @@ import PostItem from '../components/PostItem.astro';
 import PostPinnedItem from '../components/PostPinnedItem.astro';
 const allPosts = await Astro.glob('../pages/blog/*.md');
 import Layout from '../layouts/Layout.astro';
+
+const sortedPosts = allPosts.sort((a, b) => {
+  return new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime();
+});
 ---
 
 <Layout title="CheryX's Website">
@@ -19,11 +23,11 @@ import Layout from '../layouts/Layout.astro';
 		<p class="py-2 lg:text-lg mb-8">Ocasionally I post stupid posts & tutorials here:</p>
 
 		<div class="grid lg:grid-cols-2">
-			{allPosts.slice(0,2).map((post) => <PostPinnedItem post={post} /> )}
+			{sortedPosts.slice(0,2).map((post) => <PostPinnedItem post={post} /> )}
 		</div>
 
 		<ul>
-			{allPosts.slice(2,allPosts.length).map((post) => <PostItem post={post} /> )}
+			{sortedPosts.slice(2,allPosts.length).map((post) => <PostItem post={post} /> )}
 		</ul>
 
 	</main>
