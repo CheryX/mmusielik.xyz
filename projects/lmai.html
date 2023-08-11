@@ -20,7 +20,7 @@ permalink: /projects/lmai/
 
     $.getJSON('https://ipapi.co/json/', function (data) {
         
-        let memeTemplate = randInt(0, 11);
+        let memeTemplate = randInt(0, 1);
         let text = memes[memeTemplate]
             .replaceAll("%CITY%", data.city)
             .replaceAll("%COUNTRY%", data.country_name)
