@@ -1,1 +1,1 @@
-Hi there! :wave:
+Hello, welcome to my website's source code!

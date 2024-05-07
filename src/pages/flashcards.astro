@@ -1,0 +1,554 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro'
+---
+
+<Layout title="Flashcards">
+	<div id="background">
+		<main>
+			<Header />
+
+			<hr />
+
+			<h1>Flashcards</h1>
+
+			<section>
+				<nav>
+					<label for="import">Import</label>
+					<input type="file" id="import" style="display:none;" ></input>
+					<button id="export">Export</button>
+					<div>
+						<button class="alt" id="show_editor">Editor</button>	
+					</div>
+				</nav>
+
+				<div id="flashcards">
+					<span id="task"></span>
+					<span id="front"></span>
+				</div>
+	
+				<nav>
+					<button id="back">⏪ Back</button>
+					<button id="next">⏩ Next</button>
+					<span id="indexText">0 out of 0</span>
+					<div>
+						<button class="alt" id="swap">🔁 Swap</button>	
+					</div>
+				</nav>
+
+			</section>
+
+			<dialog id="editor">
+
+				<button id="close_editor">Close</button>
+
+				<h2>Edit flashcards</h2>
+
+				<table>
+					<thead>
+						<th scope="col">Index</th>
+						<th scope="col">Front</th>
+						<th scope="col">Back</th>
+						<th scope="col">Task</th>
+						<td scope="col"></td>
+					</thead>
+					<tbody id="table_data">
+						<!-- ADD DATA HERE -->
+					</tbody>
+				</table>
+
+				<button id="add_element">Add new flaschard</button>
+
+				<ul>
+					<li>Up key - swap sides</li>
+					<li>Left key - previous question</li>
+					<li>Right key - next question</li>
+					<li>
+						<input type="checkbox" id="cover" name="cover" checked />
+						<label for="cover">Auto cover on next question</label>
+					</li>
+					<li>
+						<input type="checkbox" id="shuffle" name="shuffle" checked />
+						<label for="shuffle">Shuffle questions on load</label>
+					</li>
+				</ul>
+
+			</dialog>
+
+		</main>
+	</div>
+</Layout>
+
+<style>
+	@keyframes flow {
+		from {
+			background-position: 0px 0px;
+		}
+		to {
+			background-color: 40px 40px;
+		}
+	}
+
+	#background {
+		background: color-mix(in srgb, rgb(var(--primary)) 20%, black);
+		background-size: 40px 40px;
+		background-image:
+			radial-gradient(color-mix(in srgb, rgb(var(--primary)) 30%, black) 2px, transparent 0);
+		background-position: center;
+		animation: flow 80s linear infinite;
+		min-height: 100vh;
+	}
+
+	main {
+		margin: auto;
+		padding: 1em 4em;
+		max-width: 900px;
+    	width: 100%;
+		min-height: 100vh;
+		font-size: 18px;
+		line-height: 1.6;
+		box-sizing: border-box;
+		
+		background-color: rgb(var(--background));
+	}
+
+	@media screen and (max-width: 680px) {
+		main {
+			padding: 1em 1em;
+		}
+	}
+
+	#flashcards {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		min-height: 8em;
+		font-size: 30pt;
+		text-align: center;
+		text-wrap: balance;
+	}
+
+	#front {
+		font-size: 30pt;
+		font-weight: 600;
+	}
+
+	#task {
+		font-size: 16pt;
+		font-weight: 400;
+	}
+
+	h1 {
+		font-size: 2.5em;
+		font-weight: 700;
+		line-height: 1;
+		margin: 1em 0;
+	}
+
+	h2 {
+		font-size: 1.5em;
+		font-weight: 600;
+		line-height: 1;
+		margin: 3em 0 1em 0;
+	}
+
+	hr {
+		margin: 1em 0;
+		color: rgba(var(--text), 0.5);
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		gap: 1em;
+	}
+
+	ul {
+		color: rgba(var(--text), 0.8);
+	}
+
+	nav button, nav > label {
+		display: flex;
+		align-items: center;
+		border-radius: 0.2em;
+		padding: 0.5em 1.5em;
+
+		border: 0;
+		text-decoration: none;
+		background-color: rgb(var(--primary));
+		font-family: inherit;
+		text-align: center;
+		color: rgb(var(--background));
+		font-size: 18px;
+		font-weight: 500;
+		cursor: pointer;
+	}
+
+	
+	nav button:hover, nav > label:hover {
+		opacity: 0.9;
+	}
+
+	nav button:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	nav button.alt {
+		background-color: rgba(var(--secondary), 0.8);
+		color: rgb(var(--text))
+	}
+
+	nav > div {
+		display: flex;
+		justify-content: end;
+		flex-grow: 1;
+	}
+	
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+		font-size: 20px;
+		width: 100%;
+	}
+
+	thead {
+		background-color: rgba(var(--secondary), 0.2);
+	}
+
+	th, td {
+		padding: 0.5em 1.5em;
+	}
+
+	#add_element {
+		margin-top: 1em;
+		border-radius: 0.2em;
+		padding: 0.5em 1.5em;
+		
+		border: 0;
+		text-decoration: none;
+		background-color: #66b666;
+		font-family: inherit;
+		text-align: center;
+		color: rgb(var(--background));
+		font-size: 18px;
+		font-weight: 500;
+		cursor: pointer;
+	}
+
+</style>
+
+<style is:global>
+
+	tr:nth-of-type(even) {
+		background-color: color-mix(in srgb, rgb(var(--background)) 95%, white);
+	}
+
+	td {
+		text-align: center;
+		font-size: 12pt;
+	}
+
+	td > input {
+		padding: 0.8em;
+		background-color: transparent;
+		border: 0;
+		color: inherit;
+		font-family: inherit;
+	}
+
+	tr > button {
+		padding: 0.8em 1.5em;
+		background-color: #be4242;
+		border: 0;
+		color: inherit;
+		cursor: pointer;
+		font-family: inherit;
+	}
+</style>
+
+<script>
+	const showEditor = document.getElementById("show_editor") as HTMLElement;
+	const closeEditor = document.getElementById("close_editor") as HTMLElement;
+	const editor = document.getElementById("editor") as HTMLDialogElement;
+
+	showEditor.addEventListener("click", () => {
+		editor.showModal();
+	});
+
+	closeEditor.addEventListener("click", () => {
+		editor.close();
+	});
+</script>
+
+<style>
+	#editor::backdrop {
+		background-color: black;
+		opacity: 0.3;
+	}
+
+	#editor {
+		background-color: rgb(var(--background));
+		color: inherit;
+		padding: 2em;
+		border: 0;
+		border-radius: 1em;
+	}
+</style>
+
+<script>
+
+	let displayData: Flashcard[] = [
+		{
+			back: "",
+			front: "",
+			task: ""
+		}
+	];
+
+	let importData: Flashcard[] = displayData;
+
+	interface Flashcard {
+		task: string,
+		front: string,
+		back: string
+	}
+
+	document.addEventListener("DOMContentLoaded", function() {
+
+		function shuffle(array: any[]) {
+			let currentIndex = array.length;
+
+			while (currentIndex != 0) {
+
+				let randomIndex = Math.floor(Math.random() * currentIndex);
+				currentIndex--;
+
+				[array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+
+			}
+		}
+
+		
+		const tableBody = document.getElementById("table_data") as HTMLElement;
+		const editor = document.getElementById("editor") as HTMLElement;
+		
+		const clearTable = () => {
+			while (tableBody.firstChild) {
+				tableBody.removeChild(tableBody.firstChild);
+			}
+		};
+
+		const autoShuffle = document.getElementById("shuffle") as HTMLInputElement;
+
+		const generateInputCell = (value: string, property: "front" | "back" | "task", index: number) => {
+			const cell = document.createElement("td");
+			const input = document.createElement("input");
+
+			input.type = "text";
+			input.value = value;
+			input.addEventListener("input", (event: Event) => {
+				if (event.target) {
+					const target = event.target as HTMLTextAreaElement;
+					importData[index][property] = target.value;
+	
+					displayData = JSON.parse(JSON.stringify(importData));
+					if (autoShuffle) shuffle(displayData);
+
+					console.log("shuffled data")
+				}
+			});
+
+			cell.appendChild(input);
+			return cell;
+		};
+
+		const populateTable = () => {
+			clearTable();
+			importData.forEach((flashcard, index) => {
+				const row = document.createElement("tr");
+
+				const indexCell = document.createElement("td");
+				indexCell.textContent = (index + 1).toString();
+				row.appendChild(indexCell);
+
+				const frontCell = generateInputCell(flashcard.front, "front", index);
+				row.appendChild(frontCell);
+
+				const backCell = generateInputCell(flashcard.back, "back", index);
+				row.appendChild(backCell);
+
+				const taskCell = generateInputCell(flashcard.task, "task", index);
+				row.appendChild(taskCell);
+
+				const deleteButton = document.createElement("button");
+				deleteButton.textContent = "Remove";
+				deleteButton.addEventListener("click", () => {
+					removeFlashcardRow(index);
+				})
+				row.appendChild(deleteButton);
+
+				tableBody.appendChild(row);
+			});
+
+		};
+
+		const inputElement = document.getElementById("import") as HTMLInputElement;
+		const exportElement = document.getElementById("export") as HTMLInputElement;
+
+		inputElement.addEventListener("change", function(event) {
+			const inputFile = event.target as HTMLInputElement;
+
+			if (inputFile.files && inputFile.files[0]) {
+				const file = inputFile.files[0];
+				const reader = new FileReader();
+
+				// FileReader onload event handler
+				reader.onload = function(e) {
+					if (e.target) {
+						const fileContent = e.target.result as string;
+
+						// Output the file content to the specified output element
+						importData = JSON.parse(fileContent);
+						displayData = JSON.parse(fileContent);
+
+						if (autoShuffle) shuffle(displayData);
+
+						maxIndex = displayData.length;
+						index = 0;
+
+						populateTable();
+						changeIndex(1);
+					}
+				};
+
+				reader.readAsText(file);
+			}
+		});
+
+		function exportData() {
+			const jsonData = JSON.stringify(importData);
+			const blob = new Blob([jsonData], { type: "application/json" });
+			const url = URL.createObjectURL(blob);
+
+			const a = document.createElement("a");
+			a.href = url;
+			a.download = "data.json";
+			document.body.appendChild(a);
+			a.click();
+
+			document.body.removeChild(a);
+			URL.revokeObjectURL(url);
+		}
+
+		exportElement.addEventListener("click", function() {
+			exportData();
+		});
+
+		let index = 1;
+
+		let minIndex = 1;
+		let maxIndex = displayData.length;
+	
+		let isFront = true;
+
+		const backButton = document.getElementById("back") as HTMLInputElement;
+		const nextButton = document.getElementById("next") as HTMLInputElement;
+		const swapButton = document.getElementById("swap") as HTMLInputElement;
+	
+		const frontPage = document.getElementById("front") as HTMLInputElement;
+		const taskPage = document.getElementById("task") as HTMLInputElement;
+		const autoCheck = document.getElementById("cover") as HTMLInputElement;
+		const indexText = document.getElementById("indexText") as HTMLInputElement;
+
+		backButton.addEventListener("click", function(event) {
+			changeIndex(-1);
+		})
+
+		nextButton.addEventListener("click", function(event) {
+			changeIndex(1);
+		})
+
+		document.addEventListener("keydown", function(event) {
+			if (event.code == "ArrowUp") {
+				swap();
+			} else if (event.code == "ArrowLeft") {
+				changeIndex(-1);
+			} else if (event.code == "ArrowRight") {
+				changeIndex(1);
+			}
+		});
+
+		let toDisplay = displayData[0].front;
+		let toTask = displayData[0].task;
+
+		function swap() {
+			isFront = !isFront;
+
+			if (isFront) {
+				toDisplay = displayData[index - 1].front;
+				toTask = displayData[index - 1].task;
+			} else {
+				toDisplay = displayData[index - 1].back;
+				toTask = "Answer";
+			}
+			
+			frontPage.innerText = toDisplay;
+			taskPage.innerText = toTask;
+		}
+
+		swapButton.addEventListener("click", swap);
+
+		const removeFlashcardRow = (index: number) => {
+			importData.splice(index, 1);
+			maxIndex -= 1
+			populateTable();
+			changeIndex(0);
+		};
+
+		function changeIndex(delta: number) {
+			
+			if ((delta == -1 && index > minIndex) || (delta == 1 && index < maxIndex)) {
+				index += delta;
+			} else if (delta != 0) {
+				return;
+			}
+
+			indexText.innerText = `${index} out of ${maxIndex}`;
+
+			backButton.disabled = index == minIndex;
+			nextButton.disabled = index == maxIndex;
+
+			isFront = autoCheck.checked || isFront;
+
+			if (isFront) {
+				toDisplay = displayData[index - 1].front;
+				toTask = displayData[index - 1].task;
+			} else {
+				toDisplay = displayData[index - 1].back;
+				toTask = "Answer";
+			}
+			
+			frontPage.innerText = toDisplay;
+			taskPage.innerText = toTask;
+
+		}
+
+		const addFlashcardRow = () => {
+			importData.push({ front: "", back: "", task: "" });
+			maxIndex += 1
+			populateTable();
+			changeIndex(0);
+		};
+
+		const addButton = document.getElementById("add_element") as HTMLElement;
+		addButton.addEventListener("click", addFlashcardRow);
+
+		populateTable()
+		changeIndex(0);
+
+	});
+
+
+</script>

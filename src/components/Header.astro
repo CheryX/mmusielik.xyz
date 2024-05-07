@@ -1,0 +1,70 @@
+---
+// interface Props {
+// 	title: string;
+// }
+
+// const { title } = Astro.props;
+---
+
+<header>
+	<a href="/" class="home">
+		<img src="/favicon.png" alt="CheryX's Logo" />
+		<code>CheryX's website</code>
+	</a>
+	<span style="flex-grow:1;"></span>
+    <a href="https://www.youtube.com/channel/UCBGZMXsnwjwvyyMVqXy3Itw" target="_blank" title="Check out my inexistent Youtube channel!">
+        <img src="/social/youtube.svg" alt="Youtube Logo" />
+    </a>
+    <a href="https://github.com/CheryX" target="_blank" title="Check out my GitHub">
+        <img src="/social/github.svg" alt="GitHub Logo" />
+    </a>
+</header>
+
+<style>
+    header {
+		margin-bottom: 1em;
+		display: flex;
+		gap: 0.5em;
+		align-items: center;
+		justify-content: space-between;
+	}
+	header > a > img {
+		height: 1.2em;
+		padding: 0 0.2em;
+		display: flex;
+		align-items: middle;
+	}
+
+	header > a.home > img {
+		height: 1em;
+		padding: 0;
+		display: flex;
+		align-items: middle;
+	}
+
+    header > a > img:hover {
+		opacity: 0.9;
+	}
+
+	header > a.home {
+		display: flex;
+		color: rgb(var(--text));
+		text-decoration: none;
+		gap: 0.5em;
+		align-items: center;
+	}
+
+	header > a.home  > img:hover {
+		opacity: 1;
+	}
+
+	header > a.home > img {
+		height: 1em;
+	}
+
+	@media screen and (max-width: 680px) {
+		#title {
+			font-size: 0px;
+		}
+	}
+</style>
