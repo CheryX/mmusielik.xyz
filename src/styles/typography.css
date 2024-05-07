@@ -1,0 +1,48 @@
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1;
+    margin: 1em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    line-height: 1;
+    margin: 3em 0 1em 0;
+}
+
+hr {
+    margin: 1em 0;
+    color: rgba(var(--text), 0.5);
+}
+
+p:has(img) {
+    text-align: center;
+    margin: 2em auto;
+}
+
+video {
+    display: block;
+    margin: 2em auto;
+}
+
+blockquote {
+    background-color: #00000020;
+    padding: 1rem 4rem 1rem 2rem;
+    border-left: rgb(var(--primary)) solid 4px;
+    border-radius: 0.2em;
+}
+
+pre:has(code) {
+    padding: 1em;
+    border-radius: 0.2em;
+}
+
+article a {
+    color: rgb(var(--primary));
+}
+
+article a:visited {
+    color: rgb(var(--accent));
+}

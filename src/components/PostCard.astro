@@ -1,0 +1,82 @@
+---
+interface Props {
+	title: string;
+	url: string | undefined;
+	pub: string;
+}
+
+const { title, url, pub } = Astro.props;
+---
+
+<a href={`${url}`}>
+	<div class="image">
+		Click to open <img src="/icons/arrow.svg" alt="Arrow icon" />
+	</div>
+	<span>{title}</span>
+</a>
+
+<style>
+	a {
+		display: flex;
+		flex-direction: column-reverse;
+
+		border-radius: 0.2em;
+		text-decoration: none;
+	}
+
+	a > span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		flex-grow: 1;
+		min-height: 5em;
+		padding: 0 0.5em;
+
+		color: rgb(var(--text));
+		font-size: 20px;
+		font-weight: 500;
+		text-align: center;
+	}
+
+	a img {
+		display: block;
+		margin-left:auto;
+
+		height: 1em;
+	}
+
+	a > .image {
+		display: flex;
+		align-items: center;
+
+		padding: 0.8em 1em;
+		border-radius: 0 0  0.2em 0.2em;
+		font-weight: 500;
+
+		color: black;
+	}
+
+	a:hover {
+		opacity: 0.9;
+	}
+</style>
+
+<style is:global>
+	#projects > a {
+		background-color: rgba(var(--primary), 0.2);
+	}
+
+	#featured > a {
+		background-color: rgba(var(--accent), 0.2);
+	}
+
+	#projects > a > .image {
+		background-color: rgb(var(--primary));
+	}
+
+	#featured > a > .image {
+		background-color: rgb(var(--accent));
+	}
+
+</style>

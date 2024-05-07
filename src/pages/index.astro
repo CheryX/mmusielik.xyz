@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro'
-
-const projects = ["flashcards","flashcards","flashcards","flashcards","flashcards","flashcards"]
+import PostCard from '../components/PostCard.astro';
+import Footer from '../components/Footer.astro';
 
 const allPosts = await Astro.glob('../pages/posts/*.md');
+const allProjects = await Astro.glob('../pages/projects/*');
 // const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
 ---
 
@@ -34,90 +35,22 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
 			<h2>Featured projects</h2>
 	
 			<div id="projects">
-				{projects.slice(0, 3).map((data) => <a href={`/${data}`}>
-					<img src="/icons/arrow.svg" alt="Arrow icon" />
-					<span>{data.charAt(0).toUpperCase() + data.slice(1)}</span>
-				</a>) }
+				{allProjects.slice(0, 3).map((data) => <PostCard title={data.title} url={data.url} pub="0" />) }
 			</div>
 
 			<h2>Articles</h2>
 	
 			<div id="featured">
-				{allPosts.slice(0, 6).map((post) => <a href={`${post.url}`}>
-					<img src="/icons/arrow.svg" alt="Arrow icon" />
-					<span>{post.frontmatter.title}</span>
-				</a>) }
+				{allPosts.slice(0, 6).map((post) => <PostCard title={post.frontmatter.title} url={post.url} pub={post.frontmatter.pubDate} />) }
 			</div>
 
-			<hr />
-
-			<footer>
-				<code>CheryX 2024</code>
-			</footer>
+			<Footer />
 
 		</main>
 	</div>
 </Layout>
 
 <style>
-	@keyframes flow {
-		from {
-			background-position: 0px 0px;
-		}
-		to {
-			background-color: 40px 40px;
-		}
-	}
-
-	#background {
-		background: color-mix(in srgb, rgb(var(--primary)) 20%, black);
-		background-size: 40px 40px;
-		background-image:
-			linear-gradient(0deg, color-mix(in srgb, rgb(var(--primary)) 30%, black) 4px, transparent 1px),
-			linear-gradient(90deg, color-mix(in srgb, rgb(var(--primary)) 30%, black) 4px, transparent 1px);
-		background-position: center;
-		animation: flow 80s linear infinite;
-		min-height: 100vh;
-	}
-
-	main {
-		margin: auto;
-		padding: 1em 4em;
-		max-width: 900px;
-    	width: 100%;
-		min-height: 100vh;
-		font-size: 18px;
-		line-height: 1.6;
-		box-sizing: border-box;
-		
-		background-color: rgb(var(--background));
-	}
-
-	@media screen and (max-width: 680px) {
-		main {
-			padding: 1em 1em;
-		}
-	}
-
-	h1 {
-		font-size: 2.5em;
-		font-weight: 700;
-		line-height: 1;
-		margin: 1em 0;
-	}
-
-	h2 {
-		font-size: 1.5em;
-		font-weight: 600;
-		line-height: 1;
-		margin: 3em 0 1em 0;
-	}
-
-	hr {
-		margin: 1em 0;
-		color: rgba(var(--text), 0.5);
-	}
-	
 	#projects, #featured {
 		display: grid;
 		grid-template-columns: repeat(auto-fill,minmax(240px, 1fr));
@@ -125,48 +58,4 @@ const allPosts = await Astro.glob('../pages/posts/*.md');
 
 		margin-bottom: 3em;
 	}
-
-	#projects > a , #featured > a {
-		display: flex;
-		align-items: center;
-
-		border-radius: 0.2em;
-		text-decoration: none;
-	}
-
-	#projects > a {
-		background-color: rgba(var(--primary), 0.2);
-	}
-
-	#featured > a {
-		background-color: rgba(var(--accent), 0.2);
-	}
-
-	
-	#projects > a > span, #featured > a > span {
-		flex-grow: 1;
-		text-align: center;
-		color: rgb(var(--text));
-		font-size: 20px;
-		font-weight: 500;
-	}
-
-	#projects > a > img, #featured > a > img {
-		height: 1em;
-		padding: 2em 1em;
-		border-radius: 0.2em 0 0 0.2em;
-	}
-
-	#projects > a > img {
-		background-color: rgb(var(--primary));
-	}
-
-	#featured > a > img {
-		background-color: rgb(var(--accent));
-	}
-
-	#projects > a:hover {
-		opacity: 0.9;
-	}
-	
 </style>
