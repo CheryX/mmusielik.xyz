@@ -3,9 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro'
 import PostCard from '../components/PostCard.astro';
 import Footer from '../components/Footer.astro';
+import { title } from './projects/cherry-box.astro';
 
 const allPosts = await Astro.glob('../pages/posts/*.md');
-const allProjects = await Astro.glob('../pages/projects/*');
+const featuredProjects = [
+	{ title: "Flashcards", url: "projects/flashcards" },
+	{ title: "Kochanowski.js", url: "projects/kochanowski" },
+	{ title: "Trolley Problems", url: "https://trolley.mmusielik.xyz" }
+];
+// const allProjects = await Astro.glob('../pages/projects/*');
 // const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
 ---
 
@@ -34,7 +40,7 @@ const allProjects = await Astro.glob('../pages/projects/*');
 			<h2>Featured projects</h2>
 	
 			<div id="projects">
-				{allProjects.slice(0, 6).map((data) => <PostCard title={data.title} url={data.url} pub="0" />) }
+				{featuredProjects.slice(0, 3).map((data) => <PostCard title={data.title} url={data.url} pub="0" />) }
 			</div>
 
 			<h2>Articles</h2>
