@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro'
+
+const { frontmatter } = Astro.props;
+
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+
+const pubDate = new Date(frontmatter.pubDate)
+const dateString = monthNames[pubDate.getMonth()] + ' ' + pubDate.getDate() + ', ' + pubDate.getFullYear()
+---
+
+<Layout title={ frontmatter.title }>
+	<div id="background">
+		<main>
+			<Header />
+
+			<hr />
+
+            <div class="showcase">
+				{ frontmatter.image && <img src={frontmatter.image.url} alt={frontmatter.image.alt} /> }
+				<p>{dateString}</p>
+				<h1>{frontmatter.title}</h1>
+			</div>
+            
+            <article>
+				<slot />
+			</article>
+
+			<hr />
+
+			<footer>
+				<code>CheryX 2024</code>
+			</footer>
+
+		</main>
+	</div>
+</Layout>
+
+<style>
+	@keyframes flow {
+		from {
+			background-position: 0px 0px;
+		}
+		to {
+			background-color: 40px 40px;
+		}
+	}
+
+	#background {
+		background: color-mix(in srgb, rgb(var(--primary)) 20%, black);
+		background-size: 40px 40px;
+		background-image:
+			radial-gradient(color-mix(in srgb, rgb(var(--primary)) 30%, black) 2px, transparent 0);
+		background-position: center;
+		animation: flow 80s linear infinite;
+		min-height: 100vh;
+	}
+
+	main {
+		margin: auto;
+		padding: 1em 4em;
+		max-width: 900px;
+    	width: 100%;
+		min-height: 100vh;
+		font-size: 18px;
+		line-height: 1.6;
+		box-sizing: border-box;
+		
+		background-color: rgb(var(--background));
+	}
+
+	@media screen and (max-width: 680px) {
+		main {
+			padding: 1em 1em;
+		}
+	}
+
+	.showcase {
+		text-align: center;
+		margin-top: 4em;
+	}
+
+	.showcase > img {
+		width: 100%;
+		margin: 3em 0;
+	}
+
+	.showcase > h1, .showcase > p {
+		margin: .4em 0;
+	}
+
+	.showcase > p {
+		opacity: 0.5;
+	}
+
+	article {
+		margin: 4em 0;
+	}
+
+	h1 {
+		font-size: 2.5em;
+		font-weight: 700;
+		line-height: 1;
+		margin: 1em 0;
+	}
+
+	h2 {
+		font-size: 1.5em;
+		font-weight: 600;
+		line-height: 1;
+		margin: 3em 0 1em 0;
+	}
+
+	h3 {
+		font-size: 1.2em;
+		font-weight: 500;
+		line-height: 1;
+		margin: 3em 0 1em 0;
+	}
+
+	hr {
+		margin: 1em 0;
+		color: rgba(var(--text), 0.5);
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		gap: 1em;
+	}
+
+	ul {
+		color: rgba(var(--text), 0.8);
+	}	
+</style>
+
+<style is:global>
+	p:has(img) {
+		text-align: center;
+		margin: 2em auto;
+	}
+
+	video {
+		display: block;
+		margin: 2em auto;
+	}
+
+	blockquote {
+		background-color: #00000020;
+		padding: 1rem 4rem 1rem 2rem;
+		border-left: rgb(var(--primary)) solid 4px;
+		border-radius: 0.2em;
+	}
+
+	pre:has(code) {
+		padding: 1em;
+		border-radius: 0.2em;
+	}
+
+	a {
+		color: rgb(var(--primary));
+	}
+
+	a:visited {
+		color: rgb(var(--accent));
+	}
+
+	.line-number {
+		display: inline-block;
+		width: 2em; /* Adjust width as needed */
+		text-align: right;
+		margin-right: 2em; /* Adjust margin as needed */
+		color: #4c535a; /* Adjust color as needed */
+	}
+
+	/* CSS for pre element */
+	pre {
+		position: relative;
+	}
+
+</style>
+
+<script>
+// Get all pre elements with the class "astro-code"
+const preElements: NodeListOf<HTMLPreElement> = document.querySelectorAll('pre.astro-code');
+
+// Loop through each pre element
+preElements.forEach((preElement: HTMLPreElement) => {
+    // Get the code element inside the pre element
+    const codeElement: HTMLElement | null = preElement.querySelector('code');
+    
+    if (codeElement) {
+        // Get all the lines of code inside the code element
+        const lines: NodeListOf<HTMLSpanElement> = codeElement.querySelectorAll('.line');
+        
+        // Loop through each line and add line numbers
+        lines.forEach((line: HTMLSpanElement, index: number) => {
+            // Create a span element for the line number
+            const lineNumber: HTMLSpanElement = document.createElement('span');
+            lineNumber.classList.add('line-number');
+            lineNumber.textContent = (index + 1).toString();
+            
+            // Append the line number to the line
+            line.prepend(lineNumber);
+        });
+    }
+});
+
+</script>
