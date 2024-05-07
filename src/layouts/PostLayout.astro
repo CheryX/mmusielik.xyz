@@ -17,8 +17,6 @@ const dateString = monthNames[pubDate.getMonth()] + ' ' + pubDate.getDate() + ',
 		<main>
 			<Header />
 
-			<hr />
-
             <div class="showcase">
 				{ frontmatter.image && <img src={frontmatter.image.url} alt={frontmatter.image.alt} /> }
 				<p>{dateString}</p>

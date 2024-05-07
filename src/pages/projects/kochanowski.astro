@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro'
+import Footer from '../../components/Footer.astro';
+import "../../styles/navigation.css"
+
+export const title = "Kochanowski.js"
+---
+
+<Layout title={title}>
+	<div id="background" class="alt">
+        <main>
+            <Header />
+            
+            <h1>{title}</h1>
+
+            <section>
+				<nav>
+					<button id="translate">Translate</button>
+					<button class="alt" id="compile">Compile</button>	
+				</nav>
+
+                <div class="compiler">
+                    <h2>Kochanowski</h2>
+                    <textarea class="font-mono" name="kochanowski" id="pol" spellcheck="false"></textarea>
+
+                    <h2>JavaScript</h2>
+                    <textarea class="font-mono" name="javascript" id="js" spellcheck="false" readonly></textarea>
+                </div>
+            </section>
+
+            <Footer />
+        </main>
+    </div>
+</Layout>
+
+<style>
+    textarea {
+        width: 100%;
+        background-color: rgba(var(--primary), 0.2);
+        border: 0;
+        border-radius: .2em;
+        height: 30vh;
+        color: rgb(var(--text));
+        font-size: 1em;
+        padding: 1em;
+        box-sizing: border-box;
+        resize: none;
+    }
+
+    section {
+        margin-bottom: 4em;
+    }
+</style>
+
+<script>
+    "use strict";const x=[[",","."],["załącz","import"],["zwróć","return"],["z biblioteki","from"],["brak","null"],["niezdefiniowane","undefined"],["fałsz","false"],["prawda","true"],["funkcja","function"],["wyczekuj","await"],["klasa","class"],["konstruktor","constructor"],["jeżeli","if"],["jeśli","if"],["w przeciwnym wypadku","else"],["dla","for"],["dopóki","while"],["rób","do"],["sróbój","try"],["łap","catch"],["złam","break"],["kontynuuj","continue"],["stałej","const"],["stałych","const"],["stałym","const"],["stały","const"],["stałe","const"],["stała","const"],["zmiennemu","let"],["zmiennej","let"],["zmienne","let"],["zmiennym","let"],["zmienny","let"],["zmienna","let"],["której wartość jest równa","="],["który wartość jest równa","="],["któremu wartość jest równa","="],["gdzie wartość jest równa","="],["przypisz wartość","="],["nie jest równe","!="],["nie jest równy","!="],["nie jest równa","!="],["jest równe","=="],["jest równa","=="],["jest równy","=="],["jest większe od",">"],["jest większa od",">"],["jest większy od",">"],["jest mniejsze od","<"],["jest mniejsza od","<"],["jest mniejszy od","<"],["jest mniejsza bądź równa","<="],["jest mniejszy bądź równy","<="],["jest mniejsze bądź równe","<="],["jest większe bądź równe",">="],["jest większy bądź równy",">="],["jest większa bądź równa",">="],["plus","+"],["dodać","+"],["dodane do","+"],["minus","-"],["odjąć","-"],["odjęte od","-"],["razy","*"],["pomnożyć przez","*"],["pomnożone przez","*"],["pomnożona przez","*"],["podzielić na","/"],["podzielone na","/"],["podzielona na","/"],["podzielony na","/"],["do potęgi","**"],["do kwadratu","**2"],["do sześcianu","**3"],["kwadrat","**2"],["sześcian","**3"],["pierwiastek","**0.5"],["ciasto","Math.PI"],["𝝅","Math.PI"],["π","Math.PI"],["losowaLiczba","Math.random()"],["losowanie","Math.random()"],["modulować na","%"],["modulowane na","%"],["modulowana na","%"],["modulowny na","%"],["zmodulować na","%"],["zmodulowane na","%"],["zmodulowana na","%"],["zmodulowny na","%"],["zwiększ o","+="],["zmniejsz o","-="],["pomnoż o","*="],["podziel o","/="],["moduluj o","%="],["zmoduluj o","%="],["z upchniętym","."],["to","this"],["drukuj","alert"],["wewnątrz","in"],["oraz",","]],regex={m:/^[a-z]/,n:/\.(?=(?:(?:[^"]*"){2})*[^"]*$)/g,l:/.(?=(?:(?:[^"]*"){2})*[^"]*$)/g};function a(n){return n.split(regex.n).map((n=>n.trim())).filter(Boolean)}function b(n){for(let e of"\\^$*+?.()|{}[]")n=n.replaceAll(e,`\\${e}`);return n}function c(n){return RegExp(`${b(n)}(?=(?:(?:[^"]*"){2})*[^"]*$)`,"g")}function d(n,e){return(n.match(c(e))||[]).length}function convertToJs(n){let e=a(n);return g(e),h(e)}function h(n){for(let e in n=n.map((n=>k(n))))for(let o in x){let t=RegExp(`${x[o][0]}(?=([^"]*"[^"]*")*[^"]*$)`,"g");n[e]=n[e].replaceAll(t,x[o][1])}return n.join(";")+";"}function g(n){let e=["+","-","*","/","%"],o=[["[","]"],["{","}"],["(",")"]];for(let t=0;t<n.length;t++){if(n[t].match(regex.m))throw SyntaxError(`Błąd w linii ${t+1}: Rozpoczynanie zdań z małej litery (ort)`);for(let o of e)if(d(n[t],o))throw SyntaxError(`Błąd w linii ${t+1}: Używanie ang*elskich symboli (jęz) (Symbol ${o})`);for(let e of o)if(d(n.join("\n"),e[0])!=d(n.join("\n"),e[1]))throw SyntaxError(`Błąd w linii ${t+1}: Nie domykanie nawiasów (sens)`)}}function k(n){return n.replaceAll(regex.l,(function(n){return n.toLocaleLowerCase()}))}
+  
+    const kochanowskiTextArea = document.getElementById("pol") as HTMLTextAreaElement;
+    const javascriptTextArea = document.getElementById("js") as HTMLTextAreaElement;
+    
+    const translateBtn = document.getElementById("translate") as HTMLElement;
+    const compileBtn = document.getElementById("compile") as HTMLElement;
+
+    translateBtn.addEventListener("click", () => {
+        let kochVer = kochanowskiTextArea.value;
+    
+        try {
+          javascriptTextArea.value = convertToJs(kochVer);
+        } catch (error: any) {
+          javascriptTextArea.value = error;
+        }
+    });
+  
+    compileBtn.addEventListener("click", () => {
+      eval(javascriptTextArea.value);
+    });
+
+</script>

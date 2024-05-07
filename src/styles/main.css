@@ -15,7 +15,7 @@
 		background-size: 224px;
 	}
 	
-	code {
+	code, .font-mono {
 		font-family: "JetBrains Mono", monospace;
 	}
 

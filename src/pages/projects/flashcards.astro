@@ -2,18 +2,17 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro';
+import "../../styles/navigation.css"
 
 export const title = "Flashcards"
 ---
 
-<Layout title="Flashcards">
+<Layout title={title}>
 	<div id="background" class="alt">
 		<main>
 			<Header />
 
-			<hr />
-
-			<h1>Flashcards</h1>
+			<h1>{title}</h1>
 
 			<section>
 				<nav>
@@ -104,51 +103,6 @@ export const title = "Flashcards"
 	#task {
 		font-size: 16pt;
 		font-weight: 400;
-	}
-
-	nav {
-		display: flex;
-		align-items: center;
-		gap: 1em;
-	}
-
-
-	nav button, nav > label {
-		display: flex;
-		align-items: center;
-		border-radius: 0.2em;
-		padding: 0.5em 1.5em;
-
-		border: 0;
-		text-decoration: none;
-		background-color: rgb(var(--primary));
-		font-family: inherit;
-		text-align: center;
-		color: rgb(var(--background));
-		font-size: 18px;
-		font-weight: 500;
-		cursor: pointer;
-	}
-
-	
-	nav button:hover, nav > label:hover {
-		opacity: 0.9;
-	}
-
-	nav button:disabled {
-		opacity: 0.5;
-		cursor: not-allowed;
-	}
-
-	nav button.alt {
-		background-color: rgba(var(--secondary), 0.8);
-		color: rgb(var(--text))
-	}
-
-	nav > div {
-		display: flex;
-		justify-content: end;
-		flex-grow: 1;
 	}
 	
 	table {
