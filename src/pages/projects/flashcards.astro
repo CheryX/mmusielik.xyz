@@ -15,28 +15,38 @@ export const title = "Flashcards"
 			<h1>{title}</h1>
 
 			<section>
+
 				<nav>
-					<label for="import">Import</label>
+					<label class="button" for="import">
+						<img src="/icons/import.svg" />
+					</label>
 					<input type="file" id="import" style="display:none;" ></input>
-					<button id="export">Export</button>
-					<div>
-						<button class="alt" id="show_editor">Editor</button>	
-					</div>
+
+					<button class="button" id="export">
+						<img src="/icons/export.svg" />
+					</button>
+
+					<span style="flex-grow: 1;" />
+
+					<button class="button alt" id="show_editor">Editor</button>	
 				</nav>
 
-				<div id="flashcards">
-					<span id="task"></span>
-					<span id="front"></span>
+				<div class="ui">
+					<button id="back">
+						<img src="/icons/previous.svg" />
+					</button>
+					<div class="content">
+						<span id="indexText">0 out of 0</span>
+						<span id="front"></span>
+					</div>
+					<button id="next">
+						<img src="/icons/previous.svg" />
+					</button>
 				</div>
 	
-				<nav>
-					<button id="back">⏪ Back</button>
-					<button id="next">⏩ Next</button>
-					<span id="indexText">0 out of 0</span>
-					<div>
-						<button class="alt" id="swap">🔁 Swap</button>	
-					</div>
-				</nav>
+				<button id="swap">
+					<img src="/icons/swap.svg" />
+				</button>	
 
 			</section>
 
@@ -51,7 +61,6 @@ export const title = "Flashcards"
 						<th scope="col">Index</th>
 						<th scope="col">Front</th>
 						<th scope="col">Back</th>
-						<th scope="col">Task</th>
 						<td scope="col"></td>
 					</thead>
 					<tbody id="table_data">
@@ -84,27 +93,68 @@ export const title = "Flashcards"
 </Layout>
 
 <style>
-	#flashcards {
+	
+	.ui {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 8em 0;
+	}
+
+	.ui > button {
+		padding: 0.8em;
+		border-radius: 50%;
+		border: 0;
+		background-color: rgba(var(--primary), 0.2);
+		font-size: 2em;
+		cursor: pointer;
+
+		aspect-ratio: 1/1;
+	}
+
+	.ui > button:hover, #swap:hover {
+		opacity: 0.9;
+	}
+
+	.ui > button:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	.content {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: center;
 		min-height: 8em;
-		font-size: 30pt;
-		text-align: center;
-		text-wrap: balance;
 	}
 
 	#front {
-		font-size: 30pt;
-		font-weight: 600;
-	}
-
-	#task {
-		font-size: 16pt;
-		font-weight: 400;
+		font-size: 1.8em;
+		margin: 0 1em;
+		text-align: center;
 	}
 	
+	#indexText {
+		font-weight: 600;
+		color: rgba(var(--text), 0.5);
+	}
+
+	#swap {
+		display: flex;
+		margin: 4em auto;
+		cursor: pointer;
+
+		border-radius: 4em;
+		border: 0;
+		background-color: rgba(var(--primary), 0.2);
+		padding: 1em 4em;
+		font-size: 1.2em;
+	}
+
+	#next > img {
+		transform: rotate(180deg);
+	}
+
 	table {
 		border-collapse: collapse;
 		border-spacing: 0;
@@ -200,16 +250,14 @@ export const title = "Flashcards"
 
 	let displayData: Flashcard[] = [
 		{
-			back: "",
-			front: "",
-			task: ""
+			back: "Import data",
+			front: "Import data",
 		}
 	];
 
 	let importData: Flashcard[] = displayData;
 
 	interface Flashcard {
-		task: string,
 		front: string,
 		back: string
 	}
@@ -241,7 +289,7 @@ export const title = "Flashcards"
 
 		const autoShuffle = document.getElementById("shuffle") as HTMLInputElement;
 
-		const generateInputCell = (value: string, property: "front" | "back" | "task", index: number) => {
+		const generateInputCell = (value: string, property: "front" | "back", index: number) => {
 			const cell = document.createElement("td");
 			const input = document.createElement("input");
 
@@ -277,9 +325,6 @@ export const title = "Flashcards"
 
 				const backCell = generateInputCell(flashcard.back, "back", index);
 				row.appendChild(backCell);
-
-				const taskCell = generateInputCell(flashcard.task, "task", index);
-				row.appendChild(taskCell);
 
 				const deleteButton = document.createElement("button");
 				deleteButton.textContent = "Remove";
@@ -380,21 +425,17 @@ export const title = "Flashcards"
 		});
 
 		let toDisplay = displayData[0].front;
-		let toTask = displayData[0].task;
 
 		function swap() {
 			isFront = !isFront;
 
 			if (isFront) {
 				toDisplay = displayData[index - 1].front;
-				toTask = displayData[index - 1].task;
 			} else {
 				toDisplay = displayData[index - 1].back;
-				toTask = "Answer";
 			}
 			
 			frontPage.innerText = toDisplay;
-			taskPage.innerText = toTask;
 		}
 
 		swapButton.addEventListener("click", swap);
@@ -423,19 +464,16 @@ export const title = "Flashcards"
 
 			if (isFront) {
 				toDisplay = displayData[index - 1].front;
-				toTask = displayData[index - 1].task;
 			} else {
 				toDisplay = displayData[index - 1].back;
-				toTask = "Answer";
 			}
 			
 			frontPage.innerText = toDisplay;
-			taskPage.innerText = toTask;
 
 		}
 
 		const addFlashcardRow = () => {
-			importData.push({ front: "", back: "", task: "" });
+			importData.push({ front: "", back: "" });
 			maxIndex += 1
 			populateTable();
 			changeIndex(0);

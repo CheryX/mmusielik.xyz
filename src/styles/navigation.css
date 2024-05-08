@@ -1,11 +1,11 @@
 nav {
     display: flex;
     align-items: center;
-    gap: 1em;
+    gap: 4px;
 }
 
 
-nav button, nav > label {
+.button {
     display: flex;
     align-items: center;
     border-radius: 0.2em;
@@ -23,22 +23,16 @@ nav button, nav > label {
 }
 
 
-nav button:hover, nav > label:hover {
+.button:hover {
     opacity: 0.9;
 }
 
-nav button:disabled {
+.button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-nav button.alt {
+.button.alt {
     background-color: rgba(var(--secondary), 0.8);
     color: rgb(var(--text))
-}
-
-nav > div {
-    display: flex;
-    justify-content: end;
-    flex-grow: 1;
 }
