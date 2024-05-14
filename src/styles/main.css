@@ -29,7 +29,9 @@ body {
         background-position: 0px 0px;
     }
     to {
-        background-color: 40px 40px;
+        background-position: 80px 40px; 
+        /* I have no idea why that works, nor do I know why it breaks when I replace background-color with background-position. */
+        /* Update: The duration of the animation had been set to 80 seconds some time ago, which now raises the question of why that even worked in the first place? */
     }
 }
 
@@ -37,7 +39,7 @@ body {
     background: color-mix(in srgb, rgb(var(--primary)) 20%, black);
     background-size: 40px 40px;
     background-position: center;
-    animation: flow 80s linear infinite;
+    animation: flow 5s linear infinite;
     min-height: 100vh;
 }
 
