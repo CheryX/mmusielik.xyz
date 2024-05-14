@@ -479,10 +479,10 @@ export const title = "Flashcards"
 				row.appendChild(deleteButtonCell);
 
 				tableElement.appendChild(row);
-
-				displayData.content = JSON.parse(JSON.stringify(importData.content));
-				if (autoShuffle) shuffle(displayData.content);
 			});
+			
+			displayData.content = JSON.parse(JSON.stringify(importData.content));
+			if (autoShuffle) shuffle(displayData.content);
 
 		};
 
