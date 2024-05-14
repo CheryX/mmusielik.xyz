@@ -36,3 +36,8 @@ nav {
     background-color: rgba(var(--secondary), 0.8);
     color: rgb(var(--text))
 }
+
+.button.green {
+    background-color: rgba(92, 255, 141, 0.8);
+    color: rgb(var(--background));
+}
