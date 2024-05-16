@@ -87,7 +87,9 @@ export const title = "Flashcards"
 					<input type="checkbox" id="cover" name="cover" checked />
 					<label for="cover">Auto cover on next question</label> <br />
 					<input type="checkbox" id="shuffle" name="shuffle" checked />
-					<label for="shuffle">Shuffle questions on load</label>
+					<label for="shuffle">Shuffle questions on load</label> <br />
+					<input type="checkbox" id="reverse" name="reverse" />
+					<label for="reverse">Swap front and back</label>
 
 					<h2>Templates</h2>
 
@@ -235,6 +237,7 @@ export const title = "Flashcards"
 
 		const autoShuffle = document.getElementById("shuffle");
 		const autoCheck = document.getElementById("cover");
+		const doReverse = document.getElementById("reverse");
 		
 		const importElement = document.getElementById("import");
 		const exportElement = document.getElementById("export");
@@ -314,13 +317,20 @@ export const title = "Flashcards"
 		let maxIndex = displayData.content.length;
 		let isFront = true;
 
+		document.addEventListener('change', function(e) {
+			// Re-populate the table after checking settings
+			if (e.target && e.target.type === 'checkbox') {
+				populateTable();
+			}
+		});
+
 		function swap() {
 			isFront = !isFront;
 			updateContent();
 		}
 
 		function updateContent() {
-			contentPage.innerText = displayData.content[index - 1][isFront ? "front" : "back"];
+			contentPage.innerText = displayData.content[index - 1][isFront ^ doReverse.checked ? "front" : "back"];
 		}
 
 		function updateIndexText() {
