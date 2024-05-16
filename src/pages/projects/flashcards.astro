@@ -40,13 +40,13 @@ export const title = "Flashcards"
 					</label>
 					<input type="file" id="import" style="display:none;" ></input>
 
-					<button class="button" id="export">
+					<button class="button" id="export" title="Export file">
 						<img src="/icons/export.svg" />
 					</button>
 
 					<span style="flex-grow: 1;" />
 
-					<button class="button alt" id="show_editor" title="Export file">Editor</button>	
+					<button class="button alt" id="show_editor">Editor & Settings</button>	
 				</nav>
 
 				<div id="flashcards" class="ui">
@@ -317,10 +317,10 @@ export const title = "Flashcards"
 		let maxIndex = displayData.content.length;
 		let isFront = true;
 
-		document.addEventListener('change', function(e) {
+		document.addEventListener('click', function(e) {
 			// Re-populate the table after checking settings
 			if (e.target && e.target.type === 'checkbox') {
-				populateTable();
+				updateContent();
 			}
 		});
 
@@ -446,11 +446,13 @@ export const title = "Flashcards"
 		addButton.addEventListener("click", addFlashcardRow);
 
 		const generateInputCell = (value, property, index) => {
+			
 			const cell = document.createElement("td");
 			const input = document.createElement("input");
 
 			input.type = "text";
 			input.value = value;
+
 			input.addEventListener("input", (event) => {
 				if (event.target) {
 					const target = event.target;
@@ -460,12 +462,15 @@ export const title = "Flashcards"
 
 			cell.appendChild(input);
 			return cell;
+
 		};
 
 
 		const populateTable = () => {
 			clearTable();
+
 			importData.content.forEach((flashcard, index) => {
+
 				const row = document.createElement("tr");
 
 				const indexCell = document.createElement("td");
@@ -493,6 +498,7 @@ export const title = "Flashcards"
 				row.appendChild(deleteButtonCell);
 
 				tableElement.appendChild(row);
+
 			});
 			
 			displayData.content = JSON.parse(JSON.stringify(importData.content));
