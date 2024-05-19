@@ -222,7 +222,9 @@ export const title = "Flashcards"
 		}
 	}
 
-	let displayData = {
+	let indexes = []
+
+	let importData = {
 		title: "My new flashcard",
 		thumbnail: "",
 		content: [{
@@ -230,8 +232,6 @@ export const title = "Flashcards"
 			back: "or use the editor.",
 		}]
 	}
-
-	let importData = displayData;
 
 	document.addEventListener("DOMContentLoaded", function() {
 
@@ -257,17 +257,17 @@ export const title = "Flashcards"
 
 		function updateData(content) {
 			importData = JSON.parse(content);
-			displayData = JSON.parse(content);
 
-			if (displayData.content.length < 1) {
+			if (importData.content.length < 1) {
 				alert("Invalid flashcard, no flashcards found!")
 				return;
 			}
 
-			if (autoShuffle) shuffle(displayData.content);
+			maxIndex = importData.content.length;
+			indexes = [...Array(maxIndex).keys()];
+			if (autoShuffle) shuffle(indexes);
 			
 			index = 0;
-			maxIndex = displayData.content.length;
 
 			populateTable();
 			updateIndex(1);
@@ -314,7 +314,8 @@ export const title = "Flashcards"
 
 		let index = 1; // Current index
 		let minIndex = 1;
-		let maxIndex = displayData.content.length;
+		let maxIndex = importData.content.length;
+		indexes = [...Array(maxIndex).keys()]
 		let isFront = true;
 
 		document.addEventListener('click', function(e) {
@@ -330,7 +331,7 @@ export const title = "Flashcards"
 		}
 
 		function updateContent() {
-			contentPage.innerText = displayData.content[index - 1][isFront ^ doReverse.checked ? "front" : "back"];
+			contentPage.innerText = importData.content[indexes[index - 1]][isFront ^ doReverse.checked ? "front" : "back"];
 		}
 
 		function updateIndexText() {
@@ -501,8 +502,7 @@ export const title = "Flashcards"
 
 			});
 			
-			displayData.content = JSON.parse(JSON.stringify(importData.content));
-			if (autoShuffle) shuffle(displayData.content);
+			if (autoShuffle) shuffle(indexes);
 
 		};
 
