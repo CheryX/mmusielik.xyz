@@ -331,7 +331,11 @@ export const title = "Flashcards"
 		}
 
 		function updateContent() {
-			contentPage.innerText = importData.content[indexes[index - 1]][isFront ^ doReverse.checked ? "front" : "back"];
+
+			const side = isFront ^ doReverse.checked ? "front" : "back";
+			const fixed_index = indexes[index - 1];
+			
+			contentPage.innerText = importData.content[fixed_index][side];
 		}
 
 		function updateIndexText() {
